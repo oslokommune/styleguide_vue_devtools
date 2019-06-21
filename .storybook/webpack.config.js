@@ -1,12 +1,12 @@
 const path = require('path');
 
-module.exports = (storybookBaseConfig, configType, defaultConfig) => {
-  defaultConfig.resolve.modules = [
-    ...(defaultConfig.resolve.modules || []),
+module.exports = async ({ config, mode }) => {
+  config.resolve.modules = [
+    ...(config.resolve.modules || []),
     path.resolve('./node_modules'),
   ];
 
-  defaultConfig.module.rules.push({
+  config.module.rules.push({
     test: /\.sass$/,
     use: [
       'vue-style-loader',
@@ -22,5 +22,5 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
     ],
   });
 
-  return defaultConfig;
+  return config;
 };

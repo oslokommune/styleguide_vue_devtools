@@ -9,9 +9,15 @@ storiesOf('Atoms/Buttons/Button', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
     components: { OsgVueButton },
+    props: {
+      text: {
+        default: text('Content', 'Lorem ipsum')
+      },
+      attrs: {
+        default: object('Attributes', {'id': 'test', 'type': 'button'})
+      }
+    },
     data: () => ({
-      text: text('Content', 'Lorem ipsum'),
-      attrs: object('Attributes', {'id': 'test', 'type': 'button'}),
       click: action('Event: click')
     }),
     template: `<osg-vue-button @click="click" :attrs="attrs">{{ text }}</osg-vue-button>`
@@ -21,8 +27,10 @@ storiesOf('Atoms/Icons/Icon', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
     components: { OsgVueIcon },
-    data: () => ({
-      text: text('Icon', 'coffee')
-    }),
+    props: {
+      text: {
+        default: text('Icon', 'coffee')
+      }
+    },
     template: `<osg-vue-icon :icon="text" />`
   }));
