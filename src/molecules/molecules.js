@@ -9,25 +9,38 @@ storiesOf('Molecules/Buttons/Trigger', module)
   .add('Default', () => ({
     components: { OsgVueTrigger },
 
+    props: {
+      state: {
+        default: boolean('State', false)
+      },
+      stateIcons: {
+        default: object('StateIcons', {
+          on: 'chevron-down',
+          off: 'chevron-up'
+        })
+      },
+      text: {
+        default: text('Content', 'Lorem ipsum')
+      }
+    },
+
     data: () => ({
-      state: false,
-      stateIcons: object('StateIcons', {
-        on: 'toggle-on',
-        off: 'toggle-off'
-      }),
-      text: text('Content', 'Lorem ipsum')
+      knobState: false
     }),
 
-    computed: {
-      knobState() {
-        return boolean('State', this.state)
+    watch: {
+      state: {
+        immediate: true,
+        handler: function (val) {
+          this.knobState = val
+        }
       }
     },
 
     methods: {
       toggleState() {
-        this.state = !this.state
-        action('Event: toggleState(' + this.state.toString()  + ')')()
+        this.knobState = !this.knobState
+        action('Event: toggleState(' + this.knobState.toString()  + ')')()
       }
     },
 

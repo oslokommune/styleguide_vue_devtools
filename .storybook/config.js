@@ -1,47 +1,36 @@
-import { configure, addDecorator } from '@storybook/vue'
-import { withOptions } from '@storybook/addon-options';
-import centered from '@storybook/addon-centered'
+import { configure, addParameters } from '@storybook/vue'
+import osloTheme from './osloTheme';
 
-addDecorator(centered)
+addParameters({
+  options: {
+    theme: osloTheme,
+  },
+})
 
 // Option defaults:
-addDecorator(
-  withOptions({
-    /**
-     * name to display in the top left corner
-     * @type {String}
-     */
-    name: 'Oslo Styleguide - Vue',
-    /**
-     * URL for name in top left corner to link to
-     * @type {String}
-     */
-    url: '#',
-    /**
-     * show story component as full screen
-     * @type {Boolean}
-     */
-    goFullScreen: false,
+addParameters({
+  options: {
+    isFullScreen: false,
     /**
      * display panel that shows a list of stories
      * @type {Boolean}
      */
-    showStoriesPanel: true,
+    showNav: true,
     /**
      * display panel that shows addon configurations
      * @type {Boolean}
      */
-    showAddonPanel: true,
+    showPanel: true,
     /**
      * display floating search box to search through stories
      * @type {Boolean}
      */
     showSearchBox: false,
     /**
-     * show addon panel as a vertical panel on the right
-     * @type {Boolean}
+     * where to show the addon panel
+     * @type {('bottom'|'right')}
      */
-    addonPanelInRight: true,
+    panelPosition: 'right',
     /**
      * sorts stories
      * @type {Boolean}
@@ -80,8 +69,8 @@ addDecorator(
      * @type {Boolean}
      */
     enableShortcuts: false, // true by default
-  })
-);
+  }
+});
 
 function loadStories() {
   require('../src/atoms/atoms')
