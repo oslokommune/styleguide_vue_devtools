@@ -15,8 +15,8 @@ storiesOf('Molecules/Buttons/Trigger', module)
       },
       stateIcons: {
         default: object('StateIcons', {
-          on: 'toggle-on',
-          off: 'toggle-off'
+          on: 'chevron-down',
+          off: 'chevron-up'
         })
       },
       text: {
