@@ -29,20 +29,20 @@
     "vue-style-loader": "^4.1.2"
   },
   "dependencies": {
-    "@babel/core": "^7.1.6",
-    "@fortawesome/fontawesome-free": "^5.5.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.8",
-    "@fortawesome/free-solid-svg-icons": "^5.5.0",
-    "@fortawesome/vue-fontawesome": "^0.1.2",
-    "babel-loader": "^8.0.4",
+    "@babel/core": "^7.4.5",
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/vue-fontawesome": "^0.1.6",
+    "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "i": "^0.3.6",
-    "minireset.css": "0.0.3",
-    "npm": "^6.4.1",
-    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#0.5.0",
-    "vue": "^2.5.17",
-    "vue-loader": "^15.4.2",
-    "vue-template-compiler": "^2.5.17",
+    "minireset.css": "0.0.5",
+    "npm": "^6.9.0",
+    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#0.30.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
     "vue-template-loader": "^1.0.0"
   }
 }
