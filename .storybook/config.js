@@ -1,5 +1,6 @@
 import { configure, addParameters } from '@storybook/vue'
 import osloTheme from './osloTheme';
+import 'styleguide/src/assets/sass/common.sass';
 
 addParameters({
   options: {
