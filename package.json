@@ -33,7 +33,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
     "minireset.css": "0.0.5",
-    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#0.31.0",
+    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#0.31.1",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.10",
