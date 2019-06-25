@@ -1,6 +1,9 @@
-import { configure, addParameters } from '@storybook/vue'
+import { configure, addParameters, addDecorator, storiesOf } from '@storybook/vue'
+import { withA11y } from '@storybook/addon-a11y';
 import osloTheme from './osloTheme';
 import 'styleguide/src/assets/sass/common.sass';
+
+addDecorator(withA11y)
 
 addParameters({
   options: {
