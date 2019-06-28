@@ -13,9 +13,7 @@ storiesOf('Atoms/Buttons/Button', module)
       text: {
         default: text('Content', 'Lorem ipsum')
       },
-      attrs: {
-        default: object('Attributes', {'id': 'test', 'type': 'button'})
-      },
+
       isOutline: {
         default: boolean('is outline?', false)
       },
@@ -30,7 +28,6 @@ storiesOf('Atoms/Buttons/Button', module)
     <osg-vue-button
       @click="click"
       :isOutline="isOutline"
-      :attrs="attrs"
       :color="color"
     >
       {{ text }}
