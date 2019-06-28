@@ -57,12 +57,16 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
     template: `
     <osg-vue-expand-box
       @toggleState="toggleState"
-      :title="title"
       :isExpanded="knobState"
       :icons="icons"
       :button-aria-label="buttonAriaLabel"
     >
-      {{ content }}
+      <template v-slot:title>
+        <h2>{{ title }}</h2>
+      </template>
+      <template v-slot:content>
+        <h2>{{ content }}</h2>
+      </template>
     </osg-vue-expand-box>
     `
   }));
