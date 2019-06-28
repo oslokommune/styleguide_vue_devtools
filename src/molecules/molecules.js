@@ -2,25 +2,35 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 
-import OsgVueTrigger from 'styleguide_vue/src/molecules/buttons/trigger/trigger.vue'
+import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
 
-storiesOf('Molecules/Buttons/Trigger', module)
+storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
-    components: { OsgVueTrigger },
+    components: { OsgVueExpandBox },
 
     props: {
-      state: {
-        default: boolean('State', false)
+      isExpanded: {
+        default: boolean('is expanded?', false)
       },
-      stateIcons: {
+
+      icons: {
         default: object('StateIcons', {
-          on: 'chevron-down',
-          off: 'chevron-up'
+          expanded: 'chevron-up',
+          collapsed: 'chevron-down'
         })
       },
-      text: {
-        default: text('Content', 'Lorem ipsum')
+
+      title: {
+        default: text('Title', 'Title of the expandable content')
+      },
+
+      content: {
+        default: text('Expandable content', 'Content in the expandable area')
+      },
+
+      buttonAriaLabel: {
+        default: text('Buttons Aria Label', 'Button to toggle expandable area')
       }
     },
 
@@ -29,7 +39,7 @@ storiesOf('Molecules/Buttons/Trigger', module)
     }),
 
     watch: {
-      state: {
+      isExpanded: {
         immediate: true,
         handler: function (val) {
           this.knobState = val
@@ -40,9 +50,23 @@ storiesOf('Molecules/Buttons/Trigger', module)
     methods: {
       toggleState() {
         this.knobState = !this.knobState
-        action('Event: toggleState(' + this.knobState.toString()  + ')')()
+        action('Event: toggle expanded state - ' + this.knobState.toString()  + '')()
       }
     },
 
-    template: '<osg-vue-trigger @toggleState="toggleState" :state="knobState" :state-icons="stateIcons" :text="text" />'
+    template: `
+    <osg-vue-expand-box
+      @toggleState="toggleState"
+      :isExpanded="knobState"
+      :icons="icons"
+      :button-aria-label="buttonAriaLabel"
+    >
+      <template v-slot:title>
+        <h2>{{ title }}</h2>
+      </template>
+      <template v-slot:content>
+        <h2>{{ content }}</h2>
+      </template>
+    </osg-vue-expand-box>
+    `
   }));
