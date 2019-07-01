@@ -15,7 +15,7 @@ storiesOf('Organisms/Messages/Alert', module)
       },
 
       icons: {
-        default: object('StateIcons', {
+        default: object('icon', {
           close: 'x'
         })
       },
@@ -33,26 +33,17 @@ storiesOf('Organisms/Messages/Alert', module)
       }
     },
 
-    watch: {
-      isOpen: {
-        immediate: true,
-        handler: function (val) {
-          this.knobState = val
-        }
-      }
-    },
-
     methods: {
       openAlert() {
-        this.knobState = !this.knobState
-        action('Event: open alert - ' + this.knobState.toString()  + '')()
+        this.isOpenState = !this.isOpenState
+        action('Event: open alert - ' + this.isOpenState.toString()  + '')()
       }
     },
 
     template: `
     <osg-vue-alert
       @openAlert="openAlert"
-      :isOpen="knobState"
+      :isOpen="isOpen"
       :icons="icons"
       :button-aria-label="buttonAriaLabel"
     >
