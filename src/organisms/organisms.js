@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 
+import docVueAlert from './docs/messages/alert/alert.md'
 import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
@@ -79,4 +80,8 @@ storiesOf('Organisms/Messages/Alert', module)
       </div>
     </osg-vue-alert>
     `
-  }));
+  }),
+  {
+    notes: { markdown: docVueAlert }
+  }
+);

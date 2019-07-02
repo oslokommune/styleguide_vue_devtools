@@ -1,3 +1,3 @@
 ## Alert
 
-The alert component is like a pop up window with an dark grey overlay behind.
+The alert component is a dialog with a dark grey overlay behind.
