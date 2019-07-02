@@ -31,26 +31,42 @@ storiesOf('Organisms/Messages/Alert', module)
       buttonAriaLabel: {
         default: text('Buttons Aria Label', 'Button to close the alert')
       }
+
+    },
+
+    data: () => ({
+      openState: true
+    }),
+
+    watch: {
+      isOpen: {
+        immediate: true,
+        handler: function (val) {
+          this.openState = val
+        }
+      }
     },
 
     methods: {
-      openAlert() {
-        this.isOpenState = !this.isOpenState
-        action('Event: open alert - ' + this.isOpenState.toString()  + '')()
+      toggleAlert() {
+        this.openState = !this.openState
+        action('Event: open alert - ' + this.openState.toString()  + '')()
       }
     },
 
     template: `
     <osg-vue-alert
-      @openAlert="openAlert"
-      :isOpen="isOpen"
+      @toggleAlert="toggleAlert"
+      :isOpen="openState"
       :icons="icons"
       :button-aria-label="buttonAriaLabel"
     >
-      <template v-slot:title>
-        <h3 id="alert-title">{{ title }}</h3>
+      <template v-slot>
+        <h2>Open alert</h2>
       </template>
-      <template v-slot:content>
+
+      <template v-slot:alertContent>
+        <h3 id="alert-title">{{ title }}</h3>
         <p id="alert-content">{{ content }}</p>
       </template>
       <div class="osg-alert__overlay">
