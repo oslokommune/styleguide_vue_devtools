@@ -48,10 +48,10 @@ storiesOf('Organisms/Messages/Alert', module)
       :button-aria-label="buttonAriaLabel"
     >
       <template v-slot:title>
-        <h3>{{ title }}</h3>
+        <h3 id="alert-title">{{ title }}</h3>
       </template>
       <template v-slot:content>
-        <p>{{ content }}</p>
+        <p id="alert-content">{{ content }}</p>
       </template>
       <div class="osg-alert__overlay">
         <div class="osg-alert__overlay-top">
