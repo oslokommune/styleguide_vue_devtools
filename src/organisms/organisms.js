@@ -35,11 +35,11 @@ storiesOf('Organisms/Messages/Alert', module)
         default: select('Color', ['blue-dark', 'green-dark', 'green-light', 'red', 'yellow'], 'yellow')
       },
 
-      buttonAriaLabelledBy: {
+      alertAriaLabelledBy: {
         default: null
       },
 
-      buttonAriaDescribedBy: {
+      alertAriaDescribedBy: {
         default: null
       }
     },
@@ -71,8 +71,8 @@ storiesOf('Organisms/Messages/Alert', module)
       :icon="icon"
       :button-aria-label="buttonAriaLabel"
       :buttonColor="buttonColor"
-      :buttonAriaLabelledBy="buttonAriaLabelledBy"
-      :buttonAriaDescribedBy="buttonAriaDescribedBy"
+      :alertAriaLabelledBy="alertAriaLabelledBy"
+      :alertAriaDescribedBy="alertAriaDescribedBy"
     >
       <template v-slot>
         <h2>Open alert</h2>
