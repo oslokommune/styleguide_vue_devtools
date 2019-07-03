@@ -15,10 +15,8 @@ storiesOf('Organisms/Messages/Alert', module)
         default: boolean('Is open?', true)
       },
 
-      icons: {
-        default: object('icon', {
-          close: 'x'
-        })
+      icon: {
+        default: text('close', 'x')
       },
 
       title: {
@@ -70,7 +68,7 @@ storiesOf('Organisms/Messages/Alert', module)
     <osg-vue-alert
       @toggleAlert="toggleAlert"
       :isOpen="openState"
-      :icons="icons"
+      :icon="icon"
       :button-aria-label="buttonAriaLabel"
       :buttonColor="buttonColor"
       :buttonAriaLabelledBy="buttonAriaLabelledBy"
