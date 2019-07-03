@@ -6,7 +6,7 @@ The alert component is a dialog with a dark grey overlay behind.
 
 You need to add a couple of things to make this available to screen readers:
 
-- Set the same ID value for the header and text of the alert. For example:
+- Set an ID for the header and text of the alert. For example:
 
   ```
   <h3 id='my-id-1'>{{ title }}</h3>
