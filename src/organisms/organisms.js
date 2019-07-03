@@ -35,8 +35,15 @@ storiesOf('Organisms/Messages/Alert', module)
 
       buttonColor: {
         default: select('Color', ['blue-dark', 'green-dark', 'green-light', 'red', 'yellow'], 'yellow')
-      }
+      },
 
+      buttonAriaLabelledBy: {
+        default: null
+      },
+
+      buttonAriaDescribedBy: {
+        default: null
+      }
     },
 
     data: () => ({
@@ -66,14 +73,16 @@ storiesOf('Organisms/Messages/Alert', module)
       :icons="icons"
       :button-aria-label="buttonAriaLabel"
       :buttonColor="buttonColor"
+      :buttonAriaLabelledBy="buttonAriaLabelledBy"
+      :buttonAriaDescribedBy="buttonAriaDescribedBy"
     >
       <template v-slot>
         <h2>Open alert</h2>
       </template>
 
       <template v-slot:alertContent>
-        <h3 id="alert-title">{{ title }}</h3>
-        <p id="alert-content">{{ content }}</p>
+        <h3 id='my-id-1'>{{ title }}</h3>
+        <p id='my-id-2'>{{ content }}</p>
       </template>
       <div class="osg-alert__overlay">
         <div class="osg-alert__overlay-top">
