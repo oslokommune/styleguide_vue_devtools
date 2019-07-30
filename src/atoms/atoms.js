@@ -97,21 +97,9 @@ storiesOf('Atoms/Decorators/Shape', module)
         default: text('Default Image Url', 'https://picsum.photos/900/900/?random')
       },
 
-      imageUrlMobile: {
-        default: text('Mobile Image Url', 'https://picsum.photos/600/600/?random')
-      },
-
-      imageUrlTablet: {
-        default: text('Tablet Image Url', 'https://picsum.photos/900/900/?random')
-      },
-
-      imageUrlDesktop: {
-        default: text('Desktop Image Url', 'https://picsum.photos/1200/1200/?random')
-      },
-
       imageCaption: {
         default: text('Image Caption', 'Lorem ipsum dolor sit amet')
-      },
+      }
     },
 
     template: `
