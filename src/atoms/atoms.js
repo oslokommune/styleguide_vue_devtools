@@ -79,7 +79,10 @@ storiesOf('Atoms/Decorators/Figure', module)
       sr-description="Descriptive text for screen readers"
     />
     `
-  })
+  }),
+  {
+    info: true
+  }
 )
 
 storiesOf('Atoms/Decorators/Shape', module)
@@ -119,7 +122,10 @@ storiesOf('Atoms/Decorators/Shape', module)
       {{ text }}
     </osg-vue-shape>
     `
-  })
+  }),
+  {
+    info: true
+  }
 )
 
 storiesOf('Atoms/Icons/Icon', module)
@@ -173,4 +179,8 @@ storiesOf('Atoms/Icons/Icon', module)
       }
     },
     template: `<osg-vue-icon :iconName="iconName" />`
-  }), { info: true });
+  }),
+  {
+    info: true
+  }
+)

@@ -148,5 +148,8 @@ storiesOf('Organisms/Navigation/Hero', module)
       {{ text }}
     </osg-vue-hero>
     `
-  })
+  }),
+  {
+    info: true
+  }
 )
