@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, object, boolean, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 import docVueButton from './docs/button.md';
 import OsgVueIcon from 'styleguide_vue/src/atoms/icons/icon/icon.vue'
@@ -35,7 +35,9 @@ storiesOf('Atoms/Buttons/Button', module)
     `
   }),
   {
-    notes: { markdown: docVueButton },
+    info: {
+      summary: docVueButton
+    }
   }
 );
 
@@ -90,4 +92,4 @@ storiesOf('Atoms/Icons/Icon', module)
       }
     },
     template: `<osg-vue-icon :iconName="iconName" />`
-  }));
+  }), { info: true });

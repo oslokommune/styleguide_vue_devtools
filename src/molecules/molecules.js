@@ -69,4 +69,4 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
       </template>
     </osg-vue-expand-box>
     `
-  }));
+  }), { info: true });
