@@ -1,8 +1,10 @@
 import { configure, addParameters, addDecorator, storiesOf } from '@storybook/vue'
 import { withA11y } from '@storybook/addon-a11y';
+import { withInfo } from 'storybook-addon-vue-info';
 import osloTheme from './osloTheme';
 import 'styleguide/src/assets/sass/common.sass';
 
+addDecorator(withInfo)
 addDecorator(withA11y)
 
 addParameters({
