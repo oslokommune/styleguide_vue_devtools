@@ -86,29 +86,31 @@ storiesOf('Atoms/Decorators/Shape', module)
     components: { OsgVueShape },
     props: {
       isCircle: {
-        default: boolean('is circle?', false)
+        default: boolean('Circular Shape/Image', true)
+      },
+
+      isLink: {
+        default: boolean('Link Shape', false)
+      },
+
+      isImage: {
+        default: boolean('Image Shape', true)
       },
 
       text: {
         default: text('Text in shape (without image)', '')
       },
 
-      imageUrl: {
-        default: text('Default Image Url', 'https://picsum.photos/900/900/?random')
-      },
-
       imageCaption: {
-        default: text('Image Caption', 'Lorem ipsum dolor sit amet')
+        default: text('Image Caption (with image)', 'Lorem ipsum dolor sit amet')
       }
     },
 
     template: `
     <osg-vue-shape
+      :url="isLink ? '#' : ''"
       :is-circle="isCircle"
-      :image-url="imageUrl"
-      :image-url-mobile="imageUrlMobile"
-      :image-url-tablet="imageUrlTablet"
-      :image-url-desktop="imageUrlDesktop"
+      :image-url="isImage ? 'https://picsum.photos/900/900/?random': null"
       :image-caption="imageCaption"
       image-sr-description="Descriptive text for screen readers"
     >
