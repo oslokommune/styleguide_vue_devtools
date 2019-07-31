@@ -1,10 +1,10 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = async ({ config, mode }) => {
   config.resolve.modules = [
     ...(config.resolve.modules || []),
     path.resolve('./node_modules'),
-  ];
+  ]
 
   config.module.rules.push({
     test: /\.sass$/,
@@ -20,7 +20,13 @@ module.exports = async ({ config, mode }) => {
         }
       }
     ],
-  });
+  })
 
-  return config;
-};
+  config.module.rules.push({
+    test: /\.vue$/,
+    loader: 'storybook-addon-vue-info/loader',
+    enforce: 'post'
+  })
+
+  return config
+}
