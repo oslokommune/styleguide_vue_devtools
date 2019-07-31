@@ -119,7 +119,7 @@ storiesOf('Organisms/Navigation/Hero', module)
       },
 
       contentPositionTablet: {
-        default: select('Position of content (tablet and up)', ['right', 'left', 'top', 'bottom'])
+        default: select('Position of content (tablet and up)', ['right', 'left'])
       },
 
       text: {
