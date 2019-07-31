@@ -1,4 +1,3 @@
-import '@storybook/addon-notes/register-panel'
 import 'storybook-addon-vue-info/lib/register'
 import '@storybook/addon-a11y/register'
 import '@storybook/addon-knobs/register'
