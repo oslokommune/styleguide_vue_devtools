@@ -113,7 +113,7 @@ storiesOf('Atoms/Decorators/Shape', module)
 
     template: `
     <osg-vue-shape
-      :url="isLink ? '#' : ''"
+      :url="isLink ? '#' : null"
       :is-circle="isCircle"
       :image-url="isImage ? 'https://picsum.photos/900/900/?random': null"
       :image-caption="imageCaption"
