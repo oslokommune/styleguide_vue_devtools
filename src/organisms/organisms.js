@@ -137,7 +137,7 @@ storiesOf('Organisms/Navigation/Hero', module)
 
     template: `
     <osg-vue-hero
-      :url="isLink ? '#' : ''"
+      :url="isLink ? '#' : null"
       :is-circle="isCircle"
       :content-position="contentPosition"
       :content-position-tablet="contentPositionTablet"
