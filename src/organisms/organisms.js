@@ -125,7 +125,7 @@ storiesOf('Organisms/Navigation/Hero', module)
       },
 
       imageUrl: {
-        default: text('Default Image Url', 'https://picsum.photos/900/900/?random')
+        default: text('Default Image Url', 'https://picsum.photos/600/600/?random')
       },
 
       imageCaption: {
