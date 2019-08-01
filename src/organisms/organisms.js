@@ -4,6 +4,7 @@ import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
 
 import docVueAlert from './docs/messages/alert/alert.md'
 import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
+import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
   .addDecorator(withKnobs)
@@ -98,4 +99,57 @@ storiesOf('Organisms/Messages/Alert', module)
       summary: docVueAlert
     }
   }
-);
+)
+
+storiesOf('Organisms/Navigation/Hero', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueHero },
+    props: {
+      isCircle: {
+        default: boolean('Circular Shape/Image', true)
+      },
+
+      isLink: {
+        default: boolean('Link Hero', false)
+      },
+
+      contentPosition: {
+        default: select('Position of content (mobile and up)', ['right', 'left', 'top', 'bottom'])
+      },
+
+      contentPositionTablet: {
+        default: select('Position of content (tablet and up)', ['right', 'left'])
+      },
+
+      text: {
+        default: text('Content', 'Typically there would be a heading and an ingress in this area')
+      },
+
+      imageUrl: {
+        default: text('Default Image Url', 'https://picsum.photos/600/600/?random')
+      },
+
+      imageCaption: {
+        default: text('Image Caption', '')
+      },
+    },
+
+    template: `
+    <osg-vue-hero
+      :url="isLink ? '#' : null"
+      :is-circle="isCircle"
+      :content-position="contentPosition"
+      :content-position-tablet="contentPositionTablet"
+      :image-url="imageUrl"
+      :image-caption="imageCaption"
+      image-sr-description="Descriptive text for screen readers"
+    >
+      {{ text }}
+    </osg-vue-hero>
+    `
+  }),
+  {
+    info: true
+  }
+)
