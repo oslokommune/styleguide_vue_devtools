@@ -16,9 +16,14 @@ storiesOf('Atoms/Buttons/Button', module)
         default: text('Content', 'Lorem ipsum')
       },
 
-      isOutline: {
-        default: boolean('is outline?', false)
+      isCircle: {
+        default: boolean('Circular button', false)
       },
+
+      isOutline: {
+        default: boolean('Outlined button?', false)
+      },
+
       color: {
         default: select('Color', ['blue-dark', 'green-dark', 'green-light', 'red', 'yellow'], 'blue-dark')
       }
@@ -29,6 +34,7 @@ storiesOf('Atoms/Buttons/Button', module)
     template: `
     <osg-vue-button
       @click="click"
+      :isCircle="isCircle"
       :isOutline="isOutline"
       :color="color"
     >
