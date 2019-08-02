@@ -5,6 +5,7 @@ import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
 import docVueAlert from './docs/messages/alert/alert.md'
 import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
 import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
+import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
   .addDecorator(withKnobs)
@@ -147,6 +148,44 @@ storiesOf('Organisms/Navigation/Hero', module)
     >
       {{ text }}
     </osg-vue-hero>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Organisms/Navigation/ShapeHero', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueShapeHero },
+    props: {
+      isCircle: {
+        default: boolean('Circular Image', false)
+      },
+
+      text: {
+        default: text('Content', 'You can put any content in this area.')
+      },
+
+      imageUrl: {
+        default: text('Default Image Url', 'https://picsum.photos/320/320/?random')
+      },
+
+      imageCaption: {
+        default: text('Image Caption', '')
+      },
+    },
+
+    template: `
+    <osg-vue-shape-hero
+      :is-circle="isCircle"
+      :image-url="imageUrl"
+      :image-caption="imageCaption"
+      image-sr-description="Descriptive text for screen readers"
+    >
+      {{ text }}
+    </osg-vue-shape-hero>
     `
   }),
   {
