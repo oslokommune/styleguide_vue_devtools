@@ -62,7 +62,7 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
       :button-aria-label="buttonAriaLabel"
     >
       <template v-slot:title>
-        <h2>{{ title }}</h2>
+        <h2 class="osg-u-heading-3">{{ title }}</h2>
       </template>
       <template v-slot:content>
         <h2>{{ content }}</h2>
