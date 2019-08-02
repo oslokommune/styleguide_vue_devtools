@@ -13,6 +13,7 @@ import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_
 storiesOf('Organisms/Messages/Alert', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueAlert },
 
     props: {
@@ -92,7 +93,9 @@ storiesOf('Organisms/Messages/Alert', module)
 storiesOf('Organisms/Navigation/Hero', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueHero },
+
     props: {
       isCircle: {
         default: boolean('Circular Shape/Image', true)
@@ -210,7 +213,9 @@ storiesOf('Organisms/Navigation/CallToAction', module)
 storiesOf('Organisms/Navigation/ShapeHero', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueShapeHero },
+
     props: {
       isCircle: {
         default: boolean('Circular Image', false)

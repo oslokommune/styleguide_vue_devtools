@@ -10,7 +10,9 @@ import OsgVueIcon from 'styleguide_vue/src/atoms/icons/icon/icon.vue'
 storiesOf('Atoms/Buttons/Button', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueButton },
+
     props: {
       text: {
         default: text('Content', 'Lorem ipsum')
@@ -28,9 +30,11 @@ storiesOf('Atoms/Buttons/Button', module)
         default: select('Color', ['blue-dark', 'green-dark', 'green-light', 'red', 'yellow'], 'blue-dark')
       }
     },
+
     data: () => ({
       click: action('Event: click')
     }),
+
     template: `
     <osg-vue-button
       @click="click"
@@ -52,7 +56,9 @@ storiesOf('Atoms/Buttons/Button', module)
 storiesOf('Atoms/Decorators/Figure', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueFigure },
+
     props: {
       url: {
         default: text('Default Image Url', 'https://picsum.photos/1100/900/?random')
@@ -94,7 +100,9 @@ storiesOf('Atoms/Decorators/Figure', module)
 storiesOf('Atoms/Decorators/Shape', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueShape },
+
     props: {
       isCircle: {
         default: boolean('Circular Shape/Image', true)
@@ -137,7 +145,9 @@ storiesOf('Atoms/Decorators/Shape', module)
 storiesOf('Atoms/Icons/Icon', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueIcon },
+
     props: {
       iconName: {
         default: select('Icon name', [
@@ -184,6 +194,7 @@ storiesOf('Atoms/Icons/Icon', module)
         ], 'swingset')
       }
     },
+
     template: `<osg-vue-icon :iconName="iconName" />`
   }),
   {
