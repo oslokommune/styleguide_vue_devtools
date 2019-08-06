@@ -222,8 +222,26 @@ storiesOf('Organisms/Navigation/ShapeHero', module)
         default: boolean('Circular Image', false)
       },
 
+      mainColor: {
+        type: String,
+        default: select('Color of the Main Box', ['yellow', 'blue', 'blue-light', 'green', 'green-dark', 'green-light', 'beige', 'beige-dark', 'red', 'black'])
+      },
+
+      circleColor: {
+        default: select('Color of the Circle', ['yellow', 'blue', 'blue-light', 'green', 'green-dark', 'green-light', 'beige', 'beige-dark', 'red', 'black'])
+      },
+
+      circleBgColor: {
+        default: select('Color of the Circles Background', ['white', 'grey', 'grey-light', 'yellow', 'blue', 'blue-light', 'green', 'green-dark', 'green-light', 'beige', 'beige-dark', 'red', 'black'])
+      },
+
+      textColor: {
+        type: String,
+        default: select('Color of the Dummy Content', ['blue-dark', 'grey-light'])
+      },
+
       text: {
-        default: text('Content', 'You can put any content in this area.')
+        default: text('Dummy Content', 'You can put any content in this area.')
       },
 
       imageUrl: {
@@ -238,11 +256,16 @@ storiesOf('Organisms/Navigation/ShapeHero', module)
     template: `
     <osg-vue-shape-hero
       :is-circle="isCircle"
+      :main-color="mainColor"
+      :circle-color="circleColor"
+      :circle-bg-color="circleBgColor"
       :image-url="imageUrl"
       :image-caption="imageCaption"
       image-sr-description="Descriptive text for screen readers"
     >
-      {{ text }}
+      <p :class="'osg-u-color-text-' + textColor">
+        {{ text }}
+      </p>
     </osg-vue-shape-hero>
     `
   }),
