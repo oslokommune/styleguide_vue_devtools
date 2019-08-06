@@ -9,6 +9,7 @@ import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
 import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
+import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
   .addDecorator(withKnobs)
@@ -243,6 +244,55 @@ storiesOf('Organisms/Navigation/ShapeHero', module)
     >
       {{ text }}
     </osg-vue-shape-hero>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Organisms/Cards/Card', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueCard },
+    props: {
+      isLink: {
+        default: boolean('Link Card', false)
+      },
+
+      hasAnimation: {
+        default: boolean('Animates', false)
+      },
+
+      text: {
+        default: text('Content', 'Custom content goes here.')
+      },
+
+      imageUrl: {
+        default: text('Default Image Url', 'https://picsum.photos/960/540/?random')
+      },
+
+      stateText: {
+        default: text('State text', '')
+      },
+
+      searchResult: {
+        default: text('Search result text', '')
+      }
+    },
+
+    template: `
+    <osg-vue-card
+      :url="isLink ? '#' : null"
+      :search-result="searchResult"
+      :search-result-url="searchResult ? '#' : null"
+      :has-animation="hasAnimation"
+      :state-text="stateText"
+      :image-url="imageUrl"
+      image-sr-description="Descriptive text for screen readers"
+    >
+      <p>{{ text }}</p>
+    </osg-vue-card>
     `
   }),
   {
