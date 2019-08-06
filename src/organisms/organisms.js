@@ -8,6 +8,7 @@ import docVueAlert from './docs/messages/alert/alert.md'
 import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
 import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
+import OsgVueCountdown from 'styleguide_vue/src/organisms/headings/countdown/countdown.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
   .addDecorator(withKnobs)
@@ -196,6 +197,22 @@ storiesOf('Organisms/Navigation/CallToAction', module)
         Button text
       </osg-vue-button>
     </osg-vue-call-to-action>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Organisms/Headings/Countdown', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueCountdown },
+
+    template: `
+    <osg-vue-countdown
+    >
+    </osg-vue-countdown>
     `
   }),
   {
