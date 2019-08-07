@@ -7,12 +7,14 @@ import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 import docVueAlert from './docs/messages/alert/alert.md'
 import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
 import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
+import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueAlert },
 
     props: {
@@ -92,7 +94,9 @@ storiesOf('Organisms/Messages/Alert', module)
 storiesOf('Organisms/Navigation/Hero', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueHero },
+
     props: {
       isCircle: {
         default: boolean('Circular Shape/Image', true)
@@ -145,7 +149,9 @@ storiesOf('Organisms/Navigation/Hero', module)
 storiesOf('Organisms/Navigation/CallToAction', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueCallToAction },
+
     props: {
       text: {
         default: text('Content', 'Custom content goes here.')
@@ -178,6 +184,7 @@ storiesOf('Organisms/Navigation/CallToAction', module)
 storiesOf('Organisms/Navigation/CallToAction', module)
   .addDecorator(withKnobs)
   .add('With Button', () => ({
+
     components: { OsgVueCallToAction, OsgVueButton },
 
     template: `
@@ -197,6 +204,69 @@ storiesOf('Organisms/Navigation/CallToAction', module)
         Button text
       </osg-vue-button>
     </osg-vue-call-to-action>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Organisms/Navigation/ShapeHero', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueShapeHero },
+
+    props: {
+      isCircle: {
+        default: boolean('Circular Image', false)
+      },
+
+      mainColor: {
+        type: String,
+        default: select('Color of the Main Box', ['yellow', 'blue', 'blue-light', 'green', 'green-dark', 'green-light', 'beige', 'beige-dark', 'red', 'black'])
+      },
+
+      circleColor: {
+        default: select('Color of the Circle', ['yellow', 'blue', 'blue-light', 'green', 'green-dark', 'green-light', 'beige', 'beige-dark', 'red', 'black'])
+      },
+
+      circleBgColor: {
+        default: select('Color of the Circles Background', ['white', 'grey', 'grey-light', 'yellow', 'blue', 'blue-light', 'green', 'green-dark', 'green-light', 'beige', 'beige-dark', 'red', 'black'])
+      },
+
+      textColor: {
+        type: String,
+        default: select('Color of the Dummy Content', ['blue-dark', 'grey-light'])
+      },
+
+      text: {
+        default: text('Dummy Content', 'You can put any content in this area.')
+      },
+
+      imageUrl: {
+        default: text('Default Image Url', 'https://picsum.photos/320/320/?random')
+      },
+
+      imageCaption: {
+        default: text('Image Caption', '')
+      },
+    },
+
+    template: `
+    <osg-vue-shape-hero
+      :is-circle="isCircle"
+      :main-color="mainColor"
+      :circle-color="circleColor"
+      :circle-bg-color="circleBgColor"
+      :image-url="imageUrl"
+      :image-caption="imageCaption"
+      image-sr-description="Descriptive text for screen readers"
+    >
+      <p :class="'osg-u-color-text-' + textColor">
+        {{ text }}
+      </p>
+    </osg-vue-shape-hero>
     `
   }),
   {
