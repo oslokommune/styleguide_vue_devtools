@@ -31,6 +31,7 @@
     "vue-template-loader": "^1.0.0"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^1.1.2",
     "@storybook/addon-a11y": "^5.1.9",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-knobs": "^5.1.9",
