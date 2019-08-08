@@ -125,12 +125,6 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
     >
       <template v-slot:content>
       </template>
-      <template v-slot:otherContent>
-        <div class="osg-menu__content">
-          <a href="#">Link 0</a>
-          <a href="#">Link 1</a>
-        </div>
-      </template>
     </osg-vue-menu>
     `
   }),
