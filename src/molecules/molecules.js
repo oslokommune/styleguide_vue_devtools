@@ -124,13 +124,6 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
       :menu-text-close="menuTextClose"
     >
       <template v-slot:content>
-        <span class="osg-menu__button__text">{{ menuText }}</span>
-        <span class="osg-menu__button__text-close">{{ menuTextClose }}</span>
-        <span class="osg-menu__button__icon">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </span>
       </template>
       <template v-slot:otherContent>
         <div class="osg-menu__content">
