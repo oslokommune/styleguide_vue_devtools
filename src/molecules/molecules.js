@@ -7,6 +7,7 @@ import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
+
     components: { OsgVueExpandBox },
 
     props: {
