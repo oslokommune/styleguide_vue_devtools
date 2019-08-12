@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, date } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, date, select } from '@storybook/addon-knobs'
 
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 
