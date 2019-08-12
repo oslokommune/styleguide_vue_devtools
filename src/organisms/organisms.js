@@ -256,7 +256,13 @@ storiesOf('Organisms/Headings/Countdown', module)
       :lang-seconds="langSeconds"
     >
     </osg-vue-countdown>
-    `
+    `,
+
+    propsDescription: {
+      OsgVueCountdown: {
+        countDownTo: 'The component will count down from now to the date that is passed to this prop. Example value: \'8/19/2022, 9:29:25 AM\'.',
+      }
+    }
   }),
   {
     info: true
