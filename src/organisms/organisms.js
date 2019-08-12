@@ -214,28 +214,28 @@ storiesOf('Organisms/Headings/Countdown', module)
         default: () => {
           // one week from now
           const initKnobDate = new Date(new Date().getTime() + ((7 * 24) * 60 * 60 * 1000))
-          return date('Tid å telle ned til', initKnobDate)
+          return date('Time to count down to', initKnobDate)
         }
       },
 
       title: {
-        default: text('Tittel', 'Lorem ipsum dolor sit amet.')
+        default: text('Title', 'Lorem ipsum dolor sit amet.')
       },
 
       langDays: {
-        default: text('Oversettelse av ordet "Dager"', 'Dager')
+        default: text('Translation of the Word "Days"', 'Dager')
       },
 
       langHours: {
-        default: text('Oversettelse av ordet "Timer"', 'Timer')
+        default: text('Translation of the Word "Hours"', 'Timer')
       },
 
       langMinutes: {
-        default: text('Oversettelse av ordet "Minutter"', 'Minutter')
+        default: text('Translation of the Word "Minutes"', 'Minutter')
       },
 
       langSeconds: {
-        default: text('Oversettelse av ordet "Sekunder"', 'Sekunder')
+        default: text('Translation of the Word "Seconds"', 'Sekunder')
       }
     },
 
