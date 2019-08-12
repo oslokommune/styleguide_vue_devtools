@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, date } from '@storybook/addon-knobs'
 
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 
@@ -209,8 +209,51 @@ storiesOf('Organisms/Headings/Countdown', module)
   .add('Default', () => ({
     components: { OsgVueCountdown },
 
+    props: {
+      countDownDate: {
+        default: () => {
+          // one week from now
+          const initKnobDate = new Date(new Date().getTime() + ((7 * 24) * 60 * 60 * 1000))
+          return date('Tid å telle ned til', initKnobDate)
+        }
+      },
+
+      title: {
+        default: text('Tittel', 'Lorem ipsum dolor sit amet.')
+      },
+
+      langDays: {
+        default: text('Oversettelse av ordet "Dager"', 'Dager')
+      },
+
+      langHours: {
+        default: text('Oversettelse av ordet "Timer"', 'Timer')
+      },
+
+      langMinutes: {
+        default: text('Oversettelse av ordet "Minutter"', 'Minutter')
+      },
+
+      langSeconds: {
+        default: text('Oversettelse av ordet "Sekunder"', 'Sekunder')
+      }
+    },
+
+    computed: {
+      dateConverted() {
+        const countDownDate = new Date(this.countDownDate)
+        return countDownDate.toLocaleString()
+      }
+    },
+
     template: `
     <osg-vue-countdown
+      :count-down-to="dateConverted"
+      :title="title"
+      :lang-days="langDays"
+      :lang-hours="langHours"
+      :lang-minutes="langMinutes"
+      :lang-seconds="langSeconds"
     >
     </osg-vue-countdown>
     `
