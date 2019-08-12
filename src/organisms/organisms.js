@@ -268,7 +268,7 @@ storiesOf('Organisms/Headings/Countdown', module)
 
     propsDescription: {
       OsgVueCountdown: {
-        countDownTo: 'The component will count down from now to the date that is passed to this prop. Example value: \'8/19/2022, 9:29:25 AM\'.',
+        countDownTo: 'The component will count down from now to the date that is passed to this prop. Example value: \'8/19/2022, 9:29:25 AM\'. Example value 2: myDateObject.toLocaleString().',
       }
     }
   }),
