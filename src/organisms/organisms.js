@@ -219,7 +219,7 @@ storiesOf('Organisms/Headings/Countdown', module)
       },
 
       title: {
-        default: text('Title', 'Lorem ipsum dolor sit amet.')
+        default: text('Title', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
       },
 
       langDays: {
