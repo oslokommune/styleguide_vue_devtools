@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
-import OsgVueMenu from 'styleguide_vue/src/molecules/navigation/menu/menu.vue'
+import OsgVueMenu from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -76,15 +76,19 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
     info: true
   },
 
-  storiesOf('Molecules/Menu/Menu', module)
+  storiesOf('Molecules/Navbar_menu_services/Navbar_menu_services', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
 
     components: { OsgVueMenu },
 
     props: {
-      isOpen: {
+      isExpanded: {
         default: boolean('is opened?', false)
+      },
+
+      hasOverlay: {
+        default: boolean('has overlay', false)
       },
 
       menuText: {
@@ -93,18 +97,29 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
 
       menuTextClose: {
         default: text('close button text', 'Close')
+      },
+
+      content: {
+        default: text('Expandable content', 'Content in the expandable area')
       }
     },
 
     data: () => ({
-      knobState: false
+      knobState: false,
+      knobOverlayState: false
     }),
 
     watch: {
-      isOpen: {
+      isExpanded: {
         immediate: true,
         handler: function (val) {
           this.knobState = val
+        }
+      },
+      hasOverlay: {
+        immediate: true,
+        handler: function (val) {
+          this.knobOverlayState = val
         }
       }
     },
@@ -119,7 +134,8 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
     template: `
     <osg-vue-menu
       @toggleState="toggleState"
-      :isOpen="knobState"
+      :isExpanded="knobState"
+      :hasOverlay="knobOverlayState"
       :menu-text="menuText"
       :menu-text-close="menuTextClose"
     >
