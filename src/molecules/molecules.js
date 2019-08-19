@@ -99,10 +99,6 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
         default: text('close button text', 'Close')
       },
 
-      menuOtherLinks: {
-        default: text('Menu other links', 'Min side')
-      },
-
       menuListExpanded: {
         default: text('Expandable content', 'Content in the expandable area')
       }
@@ -142,7 +138,6 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
       :hasOverlay="knobOverlayState"
       :menu-text="menuText"
       :menu-text-close="menuTextClose"
-      :menu-other-links="menuOtherLinks"
       :menu-list-expanded="menuListExpanded"
     >
       <template v-slot:content>
