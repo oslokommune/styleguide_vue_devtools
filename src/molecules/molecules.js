@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
-import OsgVueMenu from 'styleguide_vue/src/molecules/navigation/menu/menu.vue'
+import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -76,63 +76,67 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
     info: true
   },
 
-  storiesOf('Molecules/Menu/Menu', module)
+  storiesOf('Molecules/Navbar_menu_services/Navbar_menu_services', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
 
-    components: { OsgVueMenu },
+    components: { OsgVueNavbarMenuServices },
 
     props: {
-      isOpen: {
+      isExpanded: {
         default: boolean('is opened?', false)
+      },
+
+      hasOverlay: {
+        default: boolean('has overlay', false)
       },
 
       menuText: {
         default: text('button text', 'Menu')
       },
 
-      menuTextClose: {
-        default: text('close button text', 'Close')
+      menuListExpanded: {
+        default: text('Expandable content', 'Content in the expandable area')
       }
     },
 
     data: () => ({
-      knobState: false
+      knobState: false,
+      knobOverlayState: false
     }),
 
     watch: {
-      isOpen: {
+      isExpanded: {
         immediate: true,
         handler: function (val) {
           this.knobState = val
+        }
+      },
+      hasOverlay: {
+        immediate: true,
+        handler: function (val) {
+          this.knobOverlayState = val
         }
       }
     },
 
     methods: {
-      toggleState() {
+      navbarMenuServicesClicked() {
         this.knobState = !this.knobState
-        action('Event: toggle opened state - ' + this.knobState.toString()  + '')()
+        action('Event: navbarMenuServices opened state - ' + this.knobState.toString()  + '')()
       }
     },
 
     template: `
-    <osg-vue-menu
-      @toggleState="toggleState"
-      :isOpen="knobState"
-      :menu-text="menuText"
-      :menu-text-close="menuTextClose"
+    <osg-vue-navbar-menu-services
+     @navbarMenuServicesClicked="navbarMenuServicesClicked"
+     :isExpanded="knobState"
+     :hasOverlay="knobOverlayState"
+     :menu-text="menuText"
+     srMenuTextClose="Close menu"
     >
-      <template v-slot:content>
-
-      </template>
-      <template v-slot:otherContent>
-        <div class="osg-menu__content">
-          <a href="#">Link 0</a>
-          <a href="#">Link 1</a>
-        </div>
-      </template>
-    </osg-vue-menu>
+      {{ menuListExpanded }}
+    </osg-vue-navbar-menu-services>
     `
   }),
   {
