@@ -95,10 +95,6 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
         default: text('button text', 'Menu')
       },
 
-      menuTextClose: {
-        default: text('close button text', 'Close')
-      },
-
       menuListExpanded: {
         default: text('Expandable content', 'Content in the expandable area')
       }
@@ -137,7 +133,6 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
      :isExpanded="knobState"
      :hasOverlay="knobOverlayState"
      :menu-text="menuText"
-     :menu-text-close="menuTextClose"
    >
      {{ menuListExpanded }}
    </osg-vue-menu>
