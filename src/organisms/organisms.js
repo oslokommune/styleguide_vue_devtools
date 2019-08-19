@@ -443,7 +443,13 @@ storiesOf('Organisms/Global/Header', module)
     >
       <p>{{ text }}</p>
     </osg-vue-header>
-    `
+    `,
+
+    propsDescription: {
+      OsgVueHeader: {
+        rootLevelLinkTitle: 'Use this for screen reader support if you do not want to supply a "root level link text".',
+      }
+    }
   }),
   {
     info: true
