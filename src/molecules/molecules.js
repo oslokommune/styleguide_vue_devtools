@@ -93,8 +93,11 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
 
       menuText: {
         default: text('button text', 'Menu')
-      }
+      },
 
+      menuListExpanded: {
+        default: text('Expandable content', 'Content in the expandable area')
+      }
     },
 
     data: () => ({
@@ -130,8 +133,10 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
      :isExpanded="knobState"
      :hasOverlay="knobOverlayState"
      :menu-text="menuText"
-   >
-   </osg-vue-navbar-menu-services>
+     srMenuTextClose="Close menu"
+    >
+      {{ menuListExpanded }}
+    </osg-vue-navbar-menu-services>
     `
   }),
   {
