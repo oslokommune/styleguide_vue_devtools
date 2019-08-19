@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
+import OsgVueNavbarMenu from 'styleguide_vue/src/molecules/navigation/navbar_menu/navbar_menu.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -69,6 +70,56 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
         <h2>{{ content }}</h2>
       </template>
     </osg-vue-expand-box>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Molecules/Navigation/NavbarMenu', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueNavbarMenu },
+
+    props: {
+      isOpen: {
+        default: boolean('The headers menu is open', false)
+      },
+
+      text: {
+        default: text('Content', 'Custom content goes here.')
+      }
+    },
+
+    watch: {
+      isOpen: {
+        immediate: true,
+        handler: function (val) {
+          this.openState = val
+        }
+      }
+    },
+
+    data: () => ({
+      openState: false
+    }),
+
+    methods: {
+      toggleOpenState() {
+        this.openState = !this.openState
+      }
+    },
+
+    template: `
+    <osg-vue-navbar-menu
+      @navbarMenuClicked="toggleOpenState"
+      :is-open="openState"
+      aria-label="Main menu"
+    >
+      <p>{{ text }}</p>
+    </osg-vue-navbar-menu>
     `
   }),
   {

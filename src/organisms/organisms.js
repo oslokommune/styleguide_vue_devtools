@@ -10,6 +10,7 @@ import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
+import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
   .addDecorator(withKnobs)
@@ -316,6 +317,66 @@ storiesOf('Organisms/Cards/Card', module)
     >
       <p>{{ text }}</p>
     </osg-vue-card>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Organisms/Global/Header', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueHeader },
+    props: {
+      isOpen: {
+        default: boolean('The headers menu is open', false)
+      },
+
+      title: {
+        default: text('Title', 'My Brand')
+      },
+
+      text: {
+        default: text('Content', 'Custom content goes here.')
+      },
+
+      rootLevelLinkText: {
+        default: text('Root level Link text', 'Oslo kommune')
+      },
+    },
+
+    watch: {
+      isOpen: {
+        immediate: true,
+        handler: function (val) {
+          this.openState = val
+        }
+      }
+    },
+
+    data: () => ({
+      openState: false
+    }),
+
+    methods: {
+      toggleOpenState() {
+        this.openState = !this.openState
+      }
+    },
+
+    template: `
+    <osg-vue-header
+      @headerClicked="toggleOpenState"
+      :is-open="openState"
+      :brand-name="title"
+      brand-url="#"
+      button-aria-label="Main menu"
+      root-level-link-url="#"
+      :root-level-link-text="rootLevelLinkText"
+    >
+      <p>{{ text }}</p>
+    </osg-vue-header>
     `
   }),
   {
