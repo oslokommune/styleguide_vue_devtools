@@ -133,20 +133,14 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
 
     template: `
     <osg-vue-menu
-      @toggleState="toggleState"
-      :isExpanded="knobState"
-      :hasOverlay="knobOverlayState"
-      :menu-text="menuText"
-      :menu-text-close="menuTextClose"
-      :menu-list-expanded="menuListExpanded"
-    >
-      <template v-slot:content>
-      </template>
-      <template v-slot:menuOtherLinks>
-      </template>
-      <template v-slot:menuListExpanded>
-      </template>
-    </osg-vue-menu>
+     @toggleState="toggleState"
+     :isExpanded="knobState"
+     :hasOverlay="knobOverlayState"
+     :menu-text="menuText"
+     :menu-text-close="menuTextClose"
+   >
+     {{ menuListExpanded }}
+   </osg-vue-menu>
     `
   }),
   {
