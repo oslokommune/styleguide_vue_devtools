@@ -37,7 +37,7 @@
     "@storybook/vue": "^5.1.9",
     "minireset.css": "0.0.5",
     "storybook-addon-vue-info": "^1.2.2",
-    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#0.31.2",
+    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#0.32.0",
     "vue": "^2.6.10"
   }
 }
