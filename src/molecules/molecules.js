@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
-import OsgVueMenu from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
+import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -80,7 +80,7 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
 
-    components: { OsgVueMenu },
+    components: { OsgVueNavbarMenuServices },
 
     props: {
       isExpanded: {
@@ -93,11 +93,8 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
 
       menuText: {
         default: text('button text', 'Menu')
-      },
-
-      menuListExpanded: {
-        default: text('Expandable content', 'Content in the expandable area')
       }
+
     },
 
     data: () => ({
@@ -121,21 +118,20 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
     },
 
     methods: {
-      toggleState() {
+      navbarMenuServicesClicked() {
         this.knobState = !this.knobState
-        action('Event: toggle opened state - ' + this.knobState.toString()  + '')()
+        action('Event: navbarMenuServices opened state - ' + this.knobState.toString()  + '')()
       }
     },
 
     template: `
-    <osg-vue-menu
-     @toggleState="toggleState"
+    <osg-vue-navbar-menu-services
+     @navbarMenuServicesClicked="navbarMenuServicesClicked"
      :isExpanded="knobState"
      :hasOverlay="knobOverlayState"
      :menu-text="menuText"
    >
-     {{ menuListExpanded }}
-   </osg-vue-menu>
+   </osg-vue-navbar-menu-services>
     `
   }),
   {
