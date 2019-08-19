@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, date, select } from '@storybook/addon-knobs'
 
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 
@@ -9,6 +9,7 @@ import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
 import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
+import OsgVueCountdown from 'styleguide_vue/src/organisms/headings/countdown/countdown.vue'
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
 import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
 
@@ -206,6 +207,71 @@ storiesOf('Organisms/Navigation/CallToAction', module)
       </osg-vue-button>
     </osg-vue-call-to-action>
     `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Organisms/Headings/Countdown', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueCountdown },
+
+    props: {
+      countDownDate: {
+        default: () => {
+          // one week from now
+          const initKnobDate = new Date(new Date().getTime() + ((7 * 24) * 60 * 60 * 1000))
+          return date('Time to count down to', initKnobDate)
+        }
+      },
+
+      title: {
+        default: text('Title', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+      },
+
+      langDays: {
+        default: text('Translation of the Word "Days"', 'Dager')
+      },
+
+      langHours: {
+        default: text('Translation of the Word "Hours"', 'Timer')
+      },
+
+      langMinutes: {
+        default: text('Translation of the Word "Minutes"', 'Minutter')
+      },
+
+      langSeconds: {
+        default: text('Translation of the Word "Seconds"', 'Sekunder')
+      }
+    },
+
+    computed: {
+      dateConverted() {
+        const countDownDate = new Date(this.countDownDate)
+        return countDownDate.toLocaleString()
+      }
+    },
+
+    template: `
+    <osg-vue-countdown
+      :count-down-to="dateConverted"
+      :title="title"
+      :lang-days="langDays"
+      :lang-hours="langHours"
+      :lang-minutes="langMinutes"
+      :lang-seconds="langSeconds"
+    >
+    </osg-vue-countdown>
+    `,
+
+    propsDescription: {
+      OsgVueCountdown: {
+        countDownTo: 'The component will count down from now to the date that is passed to this prop. Example value: \'8/19/2022, 9:29:25 AM\'. Example value 2: myDateObject.toLocaleString().',
+      }
+    }
   }),
   {
     info: true
