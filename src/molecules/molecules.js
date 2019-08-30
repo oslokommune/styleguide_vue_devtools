@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
-import OsgVueNavbarMenu from 'styleguide_vue/src/molecules/navigation/navbar_menu/navbar_menu.vue'
+import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -74,7 +74,74 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
   }),
   {
     info: true
-  }
+  },
+
+  storiesOf('Molecules/Navbar_menu_services/Navbar_menu_services', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueNavbarMenuServices },
+
+    props: {
+      isExpanded: {
+        default: boolean('is opened?', false)
+      },
+
+      hasOverlay: {
+        default: boolean('has overlay', false)
+      },
+
+      menuText: {
+        default: text('button text', 'Menu')
+      },
+
+      menuListExpanded: {
+        default: text('Expandable content', 'Content in the expandable area')
+      }
+    },
+
+    data: () => ({
+      knobState: false,
+      knobOverlayState: false
+    }),
+
+    watch: {
+      isExpanded: {
+        immediate: true,
+        handler: function (val) {
+          this.knobState = val
+        }
+      },
+      hasOverlay: {
+        immediate: true,
+        handler: function (val) {
+          this.knobOverlayState = val
+        }
+      }
+    },
+
+    methods: {
+      navbarMenuServicesClicked() {
+        this.knobState = !this.knobState
+        action('Event: navbarMenuServices opened state - ' + this.knobState.toString()  + '')()
+      }
+    },
+
+    template: `
+    <osg-vue-navbar-menu-services
+     @navbarMenuServicesClicked="navbarMenuServicesClicked"
+     :isExpanded="knobState"
+     :hasOverlay="knobOverlayState"
+     :menu-text="menuText"
+     srMenuTextClose="Close menu"
+    >
+      {{ menuListExpanded }}
+    </osg-vue-navbar-menu-services>
+    `
+  }),
+  {
+    info: true
+  })
 )
 
 storiesOf('Molecules/Navigation/NavbarMenu', module)
