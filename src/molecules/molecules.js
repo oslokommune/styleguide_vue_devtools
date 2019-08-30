@@ -143,3 +143,53 @@ storiesOf('Molecules/Content_Display/Expand_Box', module)
     info: true
   })
 )
+
+storiesOf('Molecules/Navigation/NavbarMenu', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueNavbarMenu },
+
+    props: {
+      isOpen: {
+        default: boolean('The headers menu is open', false)
+      },
+
+      text: {
+        default: text('Content', 'Custom content goes here.')
+      }
+    },
+
+    watch: {
+      isOpen: {
+        immediate: true,
+        handler: function (val) {
+          this.openState = val
+        }
+      }
+    },
+
+    data: () => ({
+      openState: false
+    }),
+
+    methods: {
+      toggleOpenState() {
+        this.openState = !this.openState
+      }
+    },
+
+    template: `
+    <osg-vue-navbar-menu
+      @navbarMenuClicked="toggleOpenState"
+      :is-open="openState"
+      aria-label="Main menu"
+    >
+      <p>{{ text }}</p>
+    </osg-vue-navbar-menu>
+    `
+  }),
+  {
+    info: true
+  }
+)
