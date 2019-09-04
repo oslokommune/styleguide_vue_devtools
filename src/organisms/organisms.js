@@ -11,6 +11,7 @@ import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
 import OsgVueCountdown from 'styleguide_vue/src/organisms/headings/countdown/countdown.vue'
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
+import OsgVueListCard from 'styleguide_vue/src/organisms/cards/list_card/list_card.vue'
 import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
@@ -61,7 +62,7 @@ storiesOf('Organisms/Messages/Alert', module)
     methods: {
       toggleAlert() {
         this.openState = !this.openState
-        action('Event: open alert - ' + this.openState.toString()  + '')()
+        action('Event: open alert - ' + this.openState.toString() + '')()
       }
     },
 
@@ -86,12 +87,12 @@ storiesOf('Organisms/Messages/Alert', module)
     </osg-vue-alert>
     `
   }),
-  {
-    info: {
-      summary: docVueAlert
+    {
+      info: {
+        summary: docVueAlert
+      }
     }
-  }
-)
+  )
 
 storiesOf('Organisms/Navigation/Hero', module)
   .addDecorator(withKnobs)
@@ -143,10 +144,10 @@ storiesOf('Organisms/Navigation/Hero', module)
     </osg-vue-hero>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Navigation/CallToAction', module)
   .addDecorator(withKnobs)
@@ -178,10 +179,10 @@ storiesOf('Organisms/Navigation/CallToAction', module)
     </osg-vue-call-to-action>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Navigation/CallToAction', module)
   .addDecorator(withKnobs)
@@ -208,10 +209,10 @@ storiesOf('Organisms/Navigation/CallToAction', module)
     </osg-vue-call-to-action>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Headings/Countdown', module)
   .addDecorator(withKnobs)
@@ -273,10 +274,10 @@ storiesOf('Organisms/Headings/Countdown', module)
       }
     }
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Navigation/ShapeHero', module)
   .addDecorator(withKnobs)
@@ -336,10 +337,10 @@ storiesOf('Organisms/Navigation/ShapeHero', module)
     </osg-vue-shape-hero>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Cards/Card', module)
   .addDecorator(withKnobs)
@@ -385,10 +386,59 @@ storiesOf('Organisms/Cards/Card', module)
     </osg-vue-card>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
+
+storiesOf('Organisms/Cards/ListCard', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueListCard },
+    props: {
+      isLink: {
+        default: boolean('Link Card', false)
+      },
+
+      hasAnimation: {
+        default: boolean('Animates', false)
+      },
+
+      text: {
+        default: text('Content', 'Custom content goes here.')
+      },
+
+      imageUrl: {
+        default: text('Default Image Url', 'https://picsum.photos/960/540/?random')
+      },
+
+      stateText: {
+        default: text('State text', '')
+      },
+
+      searchResult: {
+        default: text('Search result text', '')
+      }
+    },
+
+    template: `
+    <osg-vue-list-card
+      :url="isLink ? '#' : null"
+      :search-result="searchResult"
+      :search-result-url="searchResult ? '#' : null"
+      :has-animation="hasAnimation"
+      :state-text="stateText"
+      :image-url="imageUrl"
+      image-sr-description="Descriptive text for screen readers"
+    >
+      <p>{{ text }}</p>
+    </osg-vue-list-card>
+    `
+  }),
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Global/Header', module)
   .addDecorator(withKnobs)
@@ -451,7 +501,7 @@ storiesOf('Organisms/Global/Header', module)
       }
     }
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
