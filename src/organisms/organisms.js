@@ -10,6 +10,8 @@ import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
 import OsgVueCountdown from 'styleguide_vue/src/organisms/headings/countdown/countdown.vue'
+import OsgVueEvent from 'styleguide_vue/src/organisms/headings/event/event.vue'
+import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
 import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
 
@@ -277,6 +279,79 @@ storiesOf('Organisms/Headings/Countdown', module)
     info: true
   }
 )
+
+storiesOf('Organisms/Headings/Event', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueEvent, OsgVueInfoList },
+
+    props: {
+      title: {
+        default: text('Title', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+      },
+
+      imageUrl: {
+        default: text('Default Image Url', 'https://picsum.photos/960/540/?random')
+      },
+
+      imageCaption: {
+        default: text('Image caption', '')
+      },
+
+      stateText: {
+        default: text('State text')
+      },
+
+      // Props for info list component
+      
+      calendarTitle: {
+        default: text('Calendar title', 'Praesent 22. sed', 'Info list'),
+      },
+
+      calendarText: {
+        default: text('Calendar link text', 'Vestibulum varius nisi', 'Info list'),
+      },
+
+      calendarUrl: {
+        default: text('Calendar url link', '', 'Info list'),
+      },
+
+      locationTitle: {
+        default: text('Location title', 'Fringilla Mattis Tortor', 'Info list'),
+      },
+
+      locationText: {
+        default: text('Location link text', 'Aliquam erat volutpat', 'Info list'),
+      },
+
+      locationUrl: {
+        default: text('Location url link', '', 'Info list'),
+      }
+    },
+
+    template: `
+    <osg-vue-event
+      :title="title"
+      :calendar-title="calendarTitle"
+      :calendar-text="calendarText"
+      :calendar-url="calendarUrl"
+      :location-title="locationTitle"
+      :location-text="locationText"
+      :location-url="locationUrl"
+      :state-text="stateText"
+      :image-url="imageUrl"
+      :image-caption="imageCaption"
+      image-sr-description="Descriptive text for screen readers"
+    >
+    </osg-vue-event>
+    `,
+  }),
+  {
+    info: true
+  }
+)
+
+
 
 storiesOf('Organisms/Navigation/ShapeHero', module)
   .addDecorator(withKnobs)
