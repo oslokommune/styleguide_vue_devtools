@@ -10,6 +10,7 @@ import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
 import OsgVueCountdown from 'styleguide_vue/src/organisms/headings/countdown/countdown.vue'
+import OsgVueCarousel from 'styleguide_vue/src/organisms/headings/carousel/carousel.vue'
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
 import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
 
@@ -272,6 +273,25 @@ storiesOf('Organisms/Headings/Countdown', module)
         countDownTo: 'The component will count down from now to the date that is passed to this prop. Example value: \'8/19/2022, 9:29:25 AM\'. Example value 2: myDateObject.toLocaleString().',
       }
     }
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Organisms/Headings/Carousel', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueCarousel },
+
+    props: {
+    },
+
+    template: `
+    <osg-vue-carousel
+    >
+    </osg-vue-carousel>
+    `,
   }),
   {
     info: true
