@@ -286,9 +286,12 @@ storiesOf('Organisms/Headings/Carousel', module)
 
     props: {
       images: {
-        default: array('Image Object', [
+        default: array('Array of Image Objects', [
           {
             'imageUrl': 'https://picsum.photos/id/614/600/600',
+            'imageUrlMobile': 'https://picsum.photos/id/615/600/600',
+            'imageUrlTablet': 'https://picsum.photos/id/616/600/600',
+            'imageUrlDesktop': 'https://picsum.photos/id/617/600/600',
             'imageCaption': 'Example 1',
           },
           {
