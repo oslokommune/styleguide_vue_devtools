@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, date, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, date, select, array, object } from '@storybook/addon-knobs'
 
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 
@@ -10,6 +10,7 @@ import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
 import OsgVueCountdown from 'styleguide_vue/src/organisms/headings/countdown/countdown.vue'
+import OsgVueCarousel from 'styleguide_vue/src/organisms/headings/carousel/carousel.vue'
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
 import OsgVueListCard from 'styleguide_vue/src/organisms/cards/list_card/list_card.vue'
 import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
@@ -278,6 +279,78 @@ storiesOf('Organisms/Headings/Countdown', module)
       info: true
     }
   )
+
+storiesOf('Organisms/Headings/Carousel', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueCarousel },
+
+    props: {
+      images: {
+        default: array('Array of Image Objects', [
+          {
+            'imageUrl': 'https://picsum.photos/id/614/600/600',
+            'imageUrlMobile': 'https://picsum.photos/id/615/600/600',
+            'imageUrlTablet': 'https://picsum.photos/id/616/600/600',
+            'imageUrlDesktop': 'https://picsum.photos/id/617/600/600',
+            'imageCaption': 'Example 1',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/615/600/600',
+            'imageCaption': 'Example 2',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/616/600/600',
+            'imageCaption': 'Example 3',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/617/600/600',
+            'imageCaption': 'Example 4',
+          },
+        ])
+      },
+
+      infinite: {
+        default: boolean("Infinite", true)
+      },
+
+      circleColor: {
+        default: text('Circle Color', 'red', 'Figures')
+      },
+
+      squareColor: {
+        default: text('Square Color', 'yellow', 'Figures')
+      },
+
+      navigationArrowColor: {
+        default: text('Navigation Arrow Color', 'yellow', 'Figures')
+      },
+
+      icons: {
+        default: object('Carousel Icons', {
+          previousIcon: 'chevron-right',
+          nextIcon: 'chevron-right'
+        })
+      },
+    },
+
+    template: `
+    <osg-vue-carousel
+      :navigation-arrow-color="navigationArrowColor"
+      :images="images"
+      :icons="icons"
+      image-sr-description="Descriptive text for screen readers"
+      :circle-color="circleColor"
+      :square-color="squareColor"
+      :infinite="infinite"
+    >
+    </osg-vue-carousel>
+    `,
+  }),
+  {
+    info: true
+  }
+)
 
 storiesOf('Organisms/Navigation/ShapeHero', module)
   .addDecorator(withKnobs)
