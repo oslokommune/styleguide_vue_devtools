@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, date, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, date, select, array, object } from '@storybook/addon-knobs'
 
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 
@@ -285,10 +285,60 @@ storiesOf('Organisms/Headings/Carousel', module)
     components: { OsgVueCarousel },
 
     props: {
+      images: {
+        default: array('Image Object', [
+          {
+            'imageUrl': 'https://picsum.photos/id/614/600/600',
+            'imageCaption': 'Example 1',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/615/600/600',
+            'imageCaption': 'Example 2',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/616/600/600',
+            'imageCaption': 'Example 3',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/617/600/600',
+            'imageCaption': 'Example 4',
+          },
+        ])
+      },
+
+      infinite: {
+        default: boolean("Infinite", true)
+      },
+
+      circleColor: {
+        default: text('Circle Color', 'red', 'Figures')
+      },
+
+      squareColor: {
+        default: text('Square Color', 'yellow', 'Figures')
+      },
+
+      navigationArrowColor: {
+        default: text('Navigation Arrow Color', 'yellow', 'Figures')
+      },
+
+      icons: {
+        default: object('Carousel Icons', {
+          previousIcon: 'chevron-right',
+          nextIcon: 'chevron-right'
+        })
+      },
     },
 
     template: `
     <osg-vue-carousel
+      :navigation-arrow-color="navigationArrowColor"
+      :images="images"
+      :icons="icons"
+      image-sr-description="Descriptive text for screen readers"
+      :circle-color="circleColor"
+      :square-color="squareColor"
+      :infinite="infinite"
     >
     </osg-vue-carousel>
     `,
