@@ -14,6 +14,7 @@ import OsgVueCarousel from 'styleguide_vue/src/organisms/headings/carousel/carou
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
 import OsgVueListCard from 'styleguide_vue/src/organisms/cards/list_card/list_card.vue'
 import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
+import OsgVueShape from 'styleguide_vue/src/atoms/decorators/shape/shape.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
   .addDecorator(withKnobs)
@@ -283,7 +284,7 @@ storiesOf('Organisms/Headings/Countdown', module)
 storiesOf('Organisms/Headings/Carousel', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
-    components: { OsgVueCarousel },
+    components: { OsgVueCarousel, OsgVueShape },
 
     props: {
       images: {
@@ -314,6 +315,14 @@ storiesOf('Organisms/Headings/Carousel', module)
         default: boolean("Infinite", true)
       },
 
+      hasCircularShape: {
+        default: boolean('Has circle?', true)
+      },
+
+      hasSquaredShape: {
+        default: boolean('Has square?', true)
+      },
+
       circleColor: {
         default: text('Circle Color', 'red', 'Figures')
       },
@@ -342,8 +351,11 @@ storiesOf('Organisms/Headings/Carousel', module)
       image-sr-description="Descriptive text for screen readers"
       :circle-color="circleColor"
       :square-color="squareColor"
+      :has-squared-shape="hasSquaredShape"
+      :has-circular-shape="hasCircularShape"
       :infinite="infinite"
     >
+      <osg-vue-shape isCircle />
     </osg-vue-carousel>
     `,
   }),
