@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
+import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
 import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
@@ -187,6 +188,55 @@ storiesOf('Molecules/Navigation/NavbarMenu', module)
     >
       <p>{{ text }}</p>
     </osg-vue-navbar-menu>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Molecules/Data_display/Info_list', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueInfoList }, 
+
+    props: {
+      calendarTitle: {
+        default: text('Calendar title', 'Praesent 22. sed'),
+      },
+
+      calendarText: {
+        default: text('Calendar link text', 'Vestibulum varius nisi'),
+      },
+
+      calendarUrl: {
+        default: text('Calendar url link'),
+      },
+
+      locationTitle: {
+        default: text('Location title', 'Fringilla Mattis Tortor'),
+      },
+
+      locationText: {
+        default: text('Location link text', 'Aliquam erat volutpat'),
+      },
+
+      locationUrl: {
+        default: text('Location url link'),
+      }
+    },
+
+    template: `
+    <osg-vue-info-list
+      :calendar-title="calendarTitle"
+      :calendar-text="calendarText"
+      :calendar-url="calendarUrl"
+      :location-title="locationTitle"
+      :location-text="locationText"
+      :location-url="locationUrl"
+    >
+    </osg-vue-info-list>
     `
   }),
   {
