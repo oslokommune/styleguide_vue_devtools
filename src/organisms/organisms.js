@@ -2,9 +2,8 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, date, select, array, object } from '@storybook/addon-knobs'
 
-import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
-
 import docVueAlert from './docs/messages/alert/alert.md'
+import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
 import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
@@ -290,7 +289,7 @@ storiesOf('Organisms/Headings/Carousel', module)
 
     props: {
       images: {
-        default: array('Array of Image Objects', [
+        default: [
           {
             'imageUrl': 'https://picsum.photos/id/614/600/600',
             'imageUrlMobile': 'https://picsum.photos/id/615/600/600',
@@ -310,7 +309,7 @@ storiesOf('Organisms/Headings/Carousel', module)
             'imageUrl': 'https://picsum.photos/id/617/600/600',
             'imageCaption': 'Example 4',
           },
-        ])
+        ]
       },
 
       infinite: {
