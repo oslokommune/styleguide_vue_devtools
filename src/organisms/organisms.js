@@ -360,7 +360,6 @@ storiesOf('Organisms/Headings/Carousel', module)
       :has-carousel-icons="hasCaruselIcons"
       :infinite="infinite"
     >
-      <osg-vue-shape isCircle />
     </osg-vue-carousel>
     `,
   }),
