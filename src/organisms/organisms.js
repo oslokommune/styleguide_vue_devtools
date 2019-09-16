@@ -315,12 +315,16 @@ storiesOf('Organisms/Headings/Carousel', module)
         default: boolean("Infinite", true)
       },
 
+      hasCaruselIcons: {
+        default: boolean("Has Carousel Icons?", false)
+      },
+
       hasCircularShape: {
-        default: boolean('Has circle?', true)
+        default: boolean('Has Circle?', true)
       },
 
       hasSquaredShape: {
-        default: boolean('Has square?', true)
+        default: boolean('Has Square?', true)
       },
 
       circleColor: {
@@ -353,6 +357,7 @@ storiesOf('Organisms/Headings/Carousel', module)
       :square-color="squareColor"
       :has-squared-shape="hasSquaredShape"
       :has-circular-shape="hasCircularShape"
+      :has-carousel-icons="hasCaruselIcons"
       :infinite="infinite"
     >
       <osg-vue-shape isCircle />
