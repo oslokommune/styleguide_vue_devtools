@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, date, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, date, select, array, object } from '@storybook/addon-knobs'
 
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 
@@ -12,7 +12,9 @@ import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_
 import OsgVueCountdown from 'styleguide_vue/src/organisms/headings/countdown/countdown.vue'
 import OsgVueEvent from 'styleguide_vue/src/organisms/headings/event/event.vue'
 import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
+import OsgVueCarousel from 'styleguide_vue/src/organisms/headings/carousel/carousel.vue'
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
+import OsgVueListCard from 'styleguide_vue/src/organisms/cards/list_card/list_card.vue'
 import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
 
 storiesOf('Organisms/Messages/Alert', module)
@@ -63,7 +65,7 @@ storiesOf('Organisms/Messages/Alert', module)
     methods: {
       toggleAlert() {
         this.openState = !this.openState
-        action('Event: open alert - ' + this.openState.toString()  + '')()
+        action('Event: open alert - ' + this.openState.toString() + '')()
       }
     },
 
@@ -88,12 +90,12 @@ storiesOf('Organisms/Messages/Alert', module)
     </osg-vue-alert>
     `
   }),
-  {
-    info: {
-      summary: docVueAlert
+    {
+      info: {
+        summary: docVueAlert
+      }
     }
-  }
-)
+  )
 
 storiesOf('Organisms/Navigation/Hero', module)
   .addDecorator(withKnobs)
@@ -145,10 +147,10 @@ storiesOf('Organisms/Navigation/Hero', module)
     </osg-vue-hero>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Navigation/CallToAction', module)
   .addDecorator(withKnobs)
@@ -180,10 +182,10 @@ storiesOf('Organisms/Navigation/CallToAction', module)
     </osg-vue-call-to-action>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Navigation/CallToAction', module)
   .addDecorator(withKnobs)
@@ -210,10 +212,10 @@ storiesOf('Organisms/Navigation/CallToAction', module)
     </osg-vue-call-to-action>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Headings/Countdown', module)
   .addDecorator(withKnobs)
@@ -274,6 +276,78 @@ storiesOf('Organisms/Headings/Countdown', module)
         countDownTo: 'The component will count down from now to the date that is passed to this prop. Example value: \'8/19/2022, 9:29:25 AM\'. Example value 2: myDateObject.toLocaleString().',
       }
     }
+  }),
+    {
+      info: true
+    }
+  )
+
+storiesOf('Organisms/Headings/Carousel', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueCarousel },
+
+    props: {
+      images: {
+        default: array('Array of Image Objects', [
+          {
+            'imageUrl': 'https://picsum.photos/id/614/600/600',
+            'imageUrlMobile': 'https://picsum.photos/id/615/600/600',
+            'imageUrlTablet': 'https://picsum.photos/id/616/600/600',
+            'imageUrlDesktop': 'https://picsum.photos/id/617/600/600',
+            'imageCaption': 'Example 1',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/615/600/600',
+            'imageCaption': 'Example 2',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/616/600/600',
+            'imageCaption': 'Example 3',
+          },
+          {
+            'imageUrl': 'https://picsum.photos/id/617/600/600',
+            'imageCaption': 'Example 4',
+          },
+        ])
+      },
+
+      infinite: {
+        default: boolean("Infinite", true)
+      },
+
+      circleColor: {
+        default: text('Circle Color', 'red', 'Figures')
+      },
+
+      squareColor: {
+        default: text('Square Color', 'yellow', 'Figures')
+      },
+
+      navigationArrowColor: {
+        default: text('Navigation Arrow Color', 'yellow', 'Figures')
+      },
+
+      icons: {
+        default: object('Carousel Icons', {
+          previousIcon: 'chevron-right',
+          nextIcon: 'chevron-right'
+        })
+      },
+    },
+
+    template: `
+    <osg-vue-carousel
+      :navigation-arrow-color="navigationArrowColor"
+      :images="images"
+      :icons="icons"
+      image-sr-description="Descriptive text for screen readers"
+      :circle-color="circleColor"
+      :square-color="squareColor"
+      :infinite="infinite"
+    >
+    </osg-vue-carousel>
+    `,
   }),
   {
     info: true
@@ -411,10 +485,10 @@ storiesOf('Organisms/Navigation/ShapeHero', module)
     </osg-vue-shape-hero>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Cards/Card', module)
   .addDecorator(withKnobs)
@@ -460,10 +534,59 @@ storiesOf('Organisms/Cards/Card', module)
     </osg-vue-card>
     `
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
+
+storiesOf('Organisms/Cards/ListCard', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueListCard },
+    props: {
+      isLink: {
+        default: boolean('Link Card', false)
+      },
+
+      hasAnimation: {
+        default: boolean('Animates', false)
+      },
+
+      text: {
+        default: text('Content', 'Custom content goes here.')
+      },
+
+      imageUrl: {
+        default: text('Default Image Url', 'https://picsum.photos/960/540/?random')
+      },
+
+      stateText: {
+        default: text('State text', '')
+      },
+
+      searchResult: {
+        default: text('Search result text', '')
+      }
+    },
+
+    template: `
+    <osg-vue-list-card
+      :url="isLink ? '#' : null"
+      :search-result="searchResult"
+      :search-result-url="searchResult ? '#' : null"
+      :has-animation="hasAnimation"
+      :state-text="stateText"
+      :image-url="imageUrl"
+      image-sr-description="Descriptive text for screen readers"
+    >
+      <p>{{ text }}</p>
+    </osg-vue-list-card>
+    `
+  }),
+    {
+      info: true
+    }
+  )
 
 storiesOf('Organisms/Global/Header', module)
   .addDecorator(withKnobs)
@@ -526,7 +649,7 @@ storiesOf('Organisms/Global/Header', module)
       }
     }
   }),
-  {
-    info: true
-  }
-)
+    {
+      info: true
+    }
+  )
