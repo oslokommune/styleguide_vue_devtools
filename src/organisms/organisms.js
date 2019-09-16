@@ -10,15 +10,9 @@ import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
 import OsgVueShapeHero from 'styleguide_vue/src/organisms/navigation/shape_hero/shape_hero.vue'
 import OsgVueCallToAction from 'styleguide_vue/src/organisms/navigation/call_to_action/call_to_action.vue'
 import OsgVueCountdown from 'styleguide_vue/src/organisms/headings/countdown/countdown.vue'
-<<<<<<< HEAD
 import OsgVueCarousel from 'styleguide_vue/src/organisms/headings/carousel/carousel.vue'
 import OsgVueEvent from 'styleguide_vue/src/organisms/headings/event/event.vue'
 import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
-=======
-import OsgVueEvent from 'styleguide_vue/src/organisms/headings/event/event.vue'
-import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
-import OsgVueCarousel from 'styleguide_vue/src/organisms/headings/carousel/carousel.vue'
->>>>>>> develop
 import OsgVueCard from 'styleguide_vue/src/organisms/cards/card/card.vue'
 import OsgVueListCard from 'styleguide_vue/src/organisms/cards/list_card/list_card.vue'
 import OsgVueHeader from 'styleguide_vue/src/organisms/global/header/header.vue'
