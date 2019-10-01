@@ -289,28 +289,28 @@ storiesOf('Organisms/Headings/Carousel', module)
 
     props: {
       images: {
-        default: [
-          {
-            'imageUrl': 'https://picsum.photos/id/614/600/600',
-            'imageUrlMobile': 'https://picsum.photos/id/615/600/600',
-            'imageUrlTablet': 'https://picsum.photos/id/616/600/600',
-            'imageUrlDesktop': 'https://picsum.photos/id/617/600/600',
-            'imageCaption': 'Example 1',
-          },
-          {
-            'imageUrl': 'https://picsum.photos/id/615/600/600',
-            'imageCaption': 'Example 2',
-          },
-          {
-            'imageUrl': 'https://picsum.photos/id/616/600/600',
-            'imageCaption': 'Example 3',
-          },
-          {
-            'imageUrl': 'https://picsum.photos/id/617/600/600',
-            'imageCaption': 'Example 4',
-          },
-        ]
-      },
+        default: array('Images', [
+            {
+              url: 'https://picsum.photos/id/614/600/600',
+              urlMobile: 'https://picsum.photos/id/615/600/600',
+              urlTablet: 'https://picsum.photos/id/616/600/600',
+              urlDesktop: 'https://picsum.photos/id/617/600/600',
+              caption: 'Example 1',
+            },
+            {
+              url: 'https://picsum.photos/id/615/600/600',
+              caption: 'Example 2',
+            },
+            {
+              url: 'https://picsum.photos/id/616/600/600',
+              caption: 'Example 3',
+            },
+            {
+              url: 'https://picsum.photos/id/617/600/600',
+              caption: 'Example 4',
+            },
+          ])
+        },
 
       infinite: {
         default: boolean("Infinite", true)
@@ -342,7 +342,7 @@ storiesOf('Organisms/Headings/Carousel', module)
 
       icons: {
         default: object('Carousel Icons', {
-          previousIcon: 'chevron-right',
+          previousIcon: 'chevron-left',
           nextIcon: 'chevron-right'
         })
       },
