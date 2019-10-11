@@ -312,10 +312,6 @@ storiesOf('Organisms/Headings/Carousel', module)
           ])
         },
 
-      infinite: {
-        default: boolean("Infinite", true)
-      },
-
       hasCircularShape: {
         default: boolean('Has Circle?', true)
       },
