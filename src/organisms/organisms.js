@@ -350,7 +350,6 @@ storiesOf('Organisms/Headings/Carousel', module)
       :square-color="squareColor"
       :has-squared-shape="hasSquaredShape"
       :has-circular-shape="hasCircularShape"
-      :infinite="infinite"
     >
     </osg-vue-carousel>
     `,
