@@ -1,11 +1,12 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 import docVueButton from './docs/button.md';
 import OsgVueFigure from 'styleguide_vue/src/atoms/decorators/figure/figure.vue'
 import OsgVueShape from 'styleguide_vue/src/atoms/decorators/shape/shape.vue'
 import OsgVueIcon from 'styleguide_vue/src/atoms/icons/icon/icon.vue'
+import OsgVueCheckbox from 'styleguide_vue/src/atoms/checkbox/checkbox.vue'
 
 storiesOf('Atoms/Buttons/Button', module)
   .addDecorator(withKnobs)
@@ -196,6 +197,44 @@ storiesOf('Atoms/Icons/Icon', module)
     },
 
     template: `<osg-vue-icon :iconName="iconName" />`
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Atoms/Checkbox/', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+    components: { OsgVueCheckbox },
+    props: {
+      disabled: {
+        default: boolean('Disabled', false)
+      },
+
+      checked: {
+        default: boolean('Checked', false)
+      },
+
+      text: {
+        default: text('Checkbox label', 'Check me!')
+      },
+
+      dataAttrs: {
+        default: object('Keys and values', {
+          'id': 'checkbox-one',
+          'name': 'checkbox-one'
+        })
+      }
+    },
+    template: `
+    <osg-vue-checkbox
+      :disabled="disabled"
+      :checked="checked"
+      :dataAttrs="dataAttrs">
+      {{ text }}
+    </osg-vue-checkbox>
+    `
   }),
   {
     info: true
