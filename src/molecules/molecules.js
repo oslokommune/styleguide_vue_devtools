@@ -1,10 +1,11 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs'
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
 import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
 import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
+import OsgVueSearchField from 'styleguide_vue/src/molecules/search/search_field/search_field.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -237,6 +238,57 @@ storiesOf('Molecules/Data_display/Info_list', module)
       :location-url="locationUrl"
     >
     </osg-vue-info-list>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Molecules/Search/Search_field', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueSearchField }, 
+
+    props: {
+      stateIcons: {
+        default: select('Icon placement', ['', 'right', 'left'], 'right'),
+      },
+
+      value: {
+        default: text('Search text valiue', 'Search here'),
+      },
+
+      placeholder: {
+        default: text('Placeholder', 'Placeholder'),
+      },
+
+      name: {
+        default: text('HTML name attribute', 'Fringilla Mattis Tortor'),
+      },
+
+      id: {
+        default: text('HTML id attribute', 'Aliquam erat volutpat'),
+      }
+    },
+
+    data() {
+      return {
+        query: {
+          text: this.value,
+        }
+      }
+    },
+
+    template: `
+    <osg-vue-search-field
+      :stateIcons="stateIcons"
+      v-model="query.text"
+      :placeholder="placeholder"
+      :name="name"
+      :id="id">
+    </osg-vue-search-field>
     `
   }),
   {
