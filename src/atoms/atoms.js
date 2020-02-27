@@ -1,11 +1,12 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 import docVueButton from './docs/button.md';
 import OsgVueFigure from 'styleguide_vue/src/atoms/decorators/figure/figure.vue'
 import OsgVueShape from 'styleguide_vue/src/atoms/decorators/shape/shape.vue'
 import OsgVueIcon from 'styleguide_vue/src/atoms/icons/icon/icon.vue'
+import OsgVueDropdown from 'styleguide_vue/src/atoms/dropdown/dropdown.vue'
 
 storiesOf('Atoms/Buttons/Button', module)
   .addDecorator(withKnobs)
@@ -199,5 +200,59 @@ storiesOf('Atoms/Icons/Icon', module)
   }),
   {
     info: true
+  }
+)
+
+storiesOf('Atoms/Dropdown', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueDropdown },
+
+    props: {
+      id: {
+        default: text('Select id')
+      }
+    },
+
+    data: () => (
+      {
+      selectOptions: object('Select Options',
+        [
+          { "name": "None",
+            "value": "0"
+          },
+          {
+            "name": "Option 1",
+            "value": "1"
+          },
+          { 
+            "name": "Option 2",
+            "value": "2" 
+          },
+          { 
+            "name": "Option 3 Dette er en veldig lang option, som godt kan være litt lengere", 
+            "value": "3" 
+          },
+          {
+            "name": "Option 5",
+            "value": "4"
+          }
+        ]
+      )
+
+    }),
+
+    template: `
+    <osg-vue-dropdown
+      :id="id"
+      :selectOptions="selectOptions">
+    </osg-vue-dropdown>
+    `
+  }),
+  {
+    info: {
+      
+    }
   }
 )
