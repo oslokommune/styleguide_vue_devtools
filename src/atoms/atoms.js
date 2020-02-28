@@ -218,18 +218,13 @@ storiesOf('Atoms/Checkbox/', module)
 
       label: {
         default: text('Checkbox label', 'Check me!')
-      },
-
-      id: {
-        default: text('Checkbox id', 'Checkbox-id')
       }
     },
     template: `
     <osg-vue-checkbox
       :disabled="disabled"
       :checked="checked"
-      :label="label"
-      :id="id">
+      :label="label">
     </osg-vue-checkbox>
     `
   }),
