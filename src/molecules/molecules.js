@@ -252,12 +252,12 @@ storiesOf('Molecules/Search/Search_field', module)
     components: { OsgVueSearchField }, 
 
     props: {
-      stateIcons: {
-        default: select('Icon placement', ['', 'right', 'left'], 'right'),
+      iconState: {
+        default: select('Icon placement', ['', 'right', 'left', 'test'], 'right'),
       },
 
       value: {
-        default: text('Search text valiue', 'Search here'),
+        default: text('Search text valiue', 'Search value'),
       },
 
       placeholder: {
@@ -268,8 +268,12 @@ storiesOf('Molecules/Search/Search_field', module)
         default: text('HTML name attribute', 'Fringilla Mattis Tortor'),
       },
 
-      id: {
-        default: text('HTML id attribute', 'Aliquam erat volutpat'),
+      label: {
+        default: text('Label name', 'Search field for form'),
+      },
+
+      autocomplete: {
+        default: (boolean('Autocomplete?', false) ? 'on' : 'off')
       }
     },
 
@@ -283,11 +287,12 @@ storiesOf('Molecules/Search/Search_field', module)
 
     template: `
     <osg-vue-search-field
-      :stateIcons="stateIcons"
+      :iconState="iconState"
       v-model="query.text"
       :placeholder="placeholder"
       :name="name"
-      :id="id">
+      :label="label"
+      :autocomplete="autocomplete">
     </osg-vue-search-field>
     `
   }),
