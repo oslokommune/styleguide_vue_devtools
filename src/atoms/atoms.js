@@ -211,7 +211,16 @@ storiesOf('Atoms/Dropdown', module)
 
     props: {
       id: {
-        default: text('Select id')
+        default: text('Select option', 'dropdown-id')
+      },
+      name: {
+        default: text('Select option', 'dropdown-name')
+      },
+      disabled: {
+        default: boolean('Disabled', false)
+      },
+      required: {
+        default: boolean('Required', false)
       }
     },
 
@@ -231,7 +240,7 @@ storiesOf('Atoms/Dropdown', module)
             "value": "2" 
           },
           { 
-            "name": "Option 3 Dette er en veldig lang option, som godt kan være litt lengere", 
+            "name": "Option 3 This is a long option that could be a bit longer", 
             "value": "3" 
           },
           {
@@ -246,7 +255,10 @@ storiesOf('Atoms/Dropdown', module)
     template: `
     <osg-vue-dropdown
       :id="id"
-      :selectOptions="selectOptions">
+      :selectOptions="selectOptions"
+      :name="name"
+      :disabled="disabled"
+      :required="required">
     </osg-vue-dropdown>
     `
   }),
