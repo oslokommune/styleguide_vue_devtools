@@ -248,18 +248,26 @@ storiesOf('Atoms/Dropdown', module)
             "value": "4"
           }
         ]
-      )
+      ),
+      selected: text('Pre-select value', '1')
 
     }),
 
     template: `
-    <osg-vue-dropdown
-      :id="id"
-      :selectOptions="selectOptions"
-      :name="name"
-      :disabled="disabled"
-      :required="required">
-    </osg-vue-dropdown>
+    <div>
+      <label class="osg-u-text-3"
+        >Label
+        <osg-vue-dropdown
+          :id="id"
+          :selectOptions="selectOptions"
+          :name="name"
+          :disabled="disabled"
+          :required="required"
+          v-model="selected">
+        </osg-vue-dropdown>
+      </label>
+      <p>Selected result: {{selected}}</p>
+    </div>
     `
   }),
   {
