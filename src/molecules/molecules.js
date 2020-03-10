@@ -252,8 +252,8 @@ storiesOf('Molecules/Search/Search_field', module)
     components: { OsgVueSearchField }, 
 
     props: {
-      iconState: {
-        default: select('Icon placement', ['', 'right', 'left', 'test'], 'right'),
+      iconPosition: {
+        default: select('Icon placement', ['', 'right', 'left', 'other??'], 'right'),
       },
 
       value: {
@@ -273,7 +273,7 @@ storiesOf('Molecules/Search/Search_field', module)
       },
 
       autocomplete: {
-        default: (boolean('Autocomplete?', false) ? 'on' : 'off')
+        default: boolean('Autocomplete?', true)
       }
     },
 
@@ -287,7 +287,7 @@ storiesOf('Molecules/Search/Search_field', module)
 
     template: `
     <osg-vue-search-field
-      :iconState="iconState"
+      :iconPosition="iconPosition"
       v-model="query.text"
       :placeholder="placeholder"
       :name="name"
