@@ -6,7 +6,7 @@ import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand
 import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
 import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
 import OsgInputDate from 'styleguide_vue/src/molecules/forms/input_date/InputDate.vue'
-import OsgInputDatepicker from 'styleguide_vue/src/molecules/forms/input_date/InputDatepicker.vue'
+import OsgInputDatepicker from 'styleguide_vue/src/molecules/forms/input_datepicker/InputDatepicker.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
