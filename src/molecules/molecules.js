@@ -7,6 +7,7 @@ import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/
 import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
 import OsgInputDate from 'styleguide_vue/src/molecules/forms/input_date/InputDate.vue'
 import OsgInputDatepicker from 'styleguide_vue/src/molecules/forms/input_date/InputDatepicker.vue'
+import OsgPagination from 'styleguide_vue/src/molecules/navigation/pagination/Pagination.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -280,6 +281,19 @@ storiesOf('Molecules/Forms/InputDatepicker', module)
           :max-date="new Date(Date.now())"
           :validation="{ isInvalid: false, message: 'Error message'}"
           @input="() => {}"
+        />`
+    })
+  )
+
+storiesOf('Molecules/Navigation/Pagination', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+      components: { OsgPagination },
+      template: `
+        <osg-pagination
+          :indexes="[1, 2, 3, 4, 5]"
+          :active-index="1"
+          :paginate="() => {}"
         />`
     })
   )
