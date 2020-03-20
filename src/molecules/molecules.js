@@ -5,6 +5,7 @@ import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
 import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
 import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
+import OsgInputDate from 'styleguide_vue/src/molecules/forms/input_date/InputDate.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -199,7 +200,7 @@ storiesOf('Molecules/Data_display/Info_list', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
 
-    components: { OsgVueInfoList }, 
+    components: { OsgVueInfoList },
 
     props: {
       calendarTitle: {
@@ -243,3 +244,22 @@ storiesOf('Molecules/Data_display/Info_list', module)
     info: true
   }
 )
+
+storiesOf('Molecules/Forms/InputDate', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+      components: { OsgInputDate },
+      data: () => ({
+        model: "2020-03-16"
+      }),
+      template: `
+        <osg-input-date
+          label="Label"
+          v-model="model"
+          :min-date="new Date('2019-06-01')"
+          :max-date="new Date(Date.now())"
+          :validation="{ isInvalid: false, message: 'Error message'}"
+          @input="() => {}"
+        />`
+    })
+  )

@@ -20,6 +20,19 @@ module.exports = async ({ config, mode }) => {
         }
       }
     ],
+  },{
+    test: /\.scss$/,
+    use: [
+      'vue-style-loader',
+      'css-loader',
+      'resolve-url-loader',
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true
+        }
+      }
+    ],
   })
 
   config.module.rules.push({
