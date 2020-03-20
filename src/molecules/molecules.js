@@ -273,7 +273,7 @@ storiesOf('Molecules/Forms/InputDatepicker', module)
         model: "2020-03-16"
       }),
       template: `
-        <osg-input-date
+        <osg-input-datepicker
           label="Label"
           v-model="model"
           :min-date="new Date('2019-06-01')"
