@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, object } from '@storybook/addon-knobs'
+import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs'
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
 import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
@@ -8,6 +8,7 @@ import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/na
 import OsgInputDate from 'styleguide_vue/src/molecules/forms/input_date/InputDate.vue'
 import OsgInputDatepicker from 'styleguide_vue/src/molecules/forms/input_datepicker/InputDatepicker.vue'
 import OsgPagination from 'styleguide_vue/src/molecules/navigation/pagination/Pagination.vue'
+import OsgVueSearchField from 'styleguide_vue/src/molecules/search/search_field/search_field.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
   .addDecorator(withKnobs)
@@ -297,3 +298,58 @@ storiesOf('Molecules/Navigation/Pagination', module)
         />`
     })
   )
+storiesOf('Molecules/Search/Search_field', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueSearchField }, 
+
+    props: {
+      iconPosition: {
+        default: select('Icon placement', ['', 'right', 'left', 'other??'], 'right'),
+      },
+
+      value: {
+        default: text('Search text valiue', 'Search value'),
+      },
+
+      placeholder: {
+        default: text('Placeholder', 'Placeholder'),
+      },
+
+      name: {
+        default: text('HTML name attribute', 'Fringilla Mattis Tortor'),
+      },
+
+      label: {
+        default: text('Label name', 'Search field for form'),
+      },
+
+      autocomplete: {
+        default: boolean('Autocomplete?', true)
+      }
+    },
+
+    data() {
+      return {
+        query: {
+          text: this.value,
+        }
+      }
+    },
+
+    template: `
+    <osg-vue-search-field
+      :iconPosition="iconPosition"
+      v-model="query.text"
+      :placeholder="placeholder"
+      :name="name"
+      :label="label"
+      :autocomplete="autocomplete">
+    </osg-vue-search-field>
+    `
+  }),
+  {
+    info: true
+  }
+)
