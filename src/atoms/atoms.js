@@ -7,6 +7,7 @@ import OsgVueFigure from 'styleguide_vue/src/atoms/decorators/figure/figure.vue'
 import OsgVueShape from 'styleguide_vue/src/atoms/decorators/shape/shape.vue'
 import OsgVueIcon from 'styleguide_vue/src/atoms/icons/icon/icon.vue'
 import OsgVueCheckbox from 'styleguide_vue/src/atoms/checkbox/checkbox.vue'
+import OsgVueDropdown from 'styleguide_vue/src/atoms/dropdown/dropdown.vue'
 
 storiesOf('Atoms/Buttons/Button', module)
   .addDecorator(withKnobs)
@@ -226,6 +227,72 @@ storiesOf('Atoms/Checkbox/', module)
       :checked="checked"
       :label="label">
     </osg-vue-checkbox>
+    `
+  }),
+  {
+    info: true
+  }
+)
+
+storiesOf('Atoms/Dropdown', module)
+  .addDecorator(withKnobs)
+  .add('Default', () => ({
+
+    components: { OsgVueDropdown },
+
+    props: {
+      id: {
+        default: text('Select option', 'dropdown-id')
+      },
+      name: {
+        default: text('Select option', 'dropdown-name')
+      },
+      disabled: {
+        default: boolean('Disabled', false)
+      },
+      required: {
+        default: boolean('Required', false)
+      }
+    },
+
+    data: () => (
+      {
+      selectOptions: object('Select Options',
+        [
+          { "name": "None",
+            "value": "0"
+          },
+          {
+            "name": "Option 1",
+            "value": "1"
+          },
+          { 
+            "name": "Option 2",
+            "value": "2" 
+          },
+          { 
+            "name": "Option 3 This is a long option that could be a bit longer", 
+            "value": "3" 
+          },
+          {
+            "name": "Option 5",
+            "value": "4"
+          }
+        ]
+      ),
+      selected: text('Pre-select value', '1')
+
+    }),
+
+    template: `
+      <osg-vue-dropdown
+        :id="id"
+        :selectOptions="selectOptions"
+        :name="name"
+        :disabled="disabled"
+        :required="required"
+        v-model="selected">
+      </osg-vue-dropdown>
     `
   }),
   {
