@@ -41,7 +41,7 @@
     "@storybook/vue": "^5.2.0-beta.25",
     "minireset.css": "0.0.5",
     "storybook-addon-vue-info": "^1.2.2",
-    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#0.33.0",
+    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#0.36.2",
     "vue": "^2.6.10"
   }
 }
