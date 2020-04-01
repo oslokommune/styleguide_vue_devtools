@@ -264,7 +264,10 @@ storiesOf('Molecules/Forms/InputDate', module)
           :validation="{ isInvalid: false, message: 'Error message'}"
           @input="() => {}"
         />`
-    })
+    }),
+    {
+      info: true
+    }
   )
 
 storiesOf('Molecules/Forms/InputDatepicker', module)
@@ -283,7 +286,10 @@ storiesOf('Molecules/Forms/InputDatepicker', module)
           :validation="{ isInvalid: false, message: 'Error message'}"
           @input="() => {}"
         />`
-    })
+    }),
+    {
+      info: true
+    }
   )
 
 storiesOf('Molecules/Navigation/Pagination', module)
@@ -296,13 +302,17 @@ storiesOf('Molecules/Navigation/Pagination', module)
           :active-index="1"
           :paginate="() => {}"
         />`
-    })
+    }),
+    {
+      info: true
+    }
   )
+
 storiesOf('Molecules/Search/Search_field', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
 
-    components: { OsgVueSearchField }, 
+    components: { OsgVueSearchField },
 
     props: {
       iconPosition: {
