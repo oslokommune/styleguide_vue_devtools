@@ -2,7 +2,7 @@ import { configure, addParameters, addDecorator } from '@storybook/vue'
 import { withA11y } from '@storybook/addon-a11y'
 import { withInfo } from 'storybook-addon-vue-info'
 import osloTheme from './osloTheme'
-import 'styleguide/src/assets/sass/common.sass'
+import '!style-loader!css-loader!sass-loader!./scss-loader.scss'
 
 addDecorator(withInfo)
 addDecorator(withA11y)
