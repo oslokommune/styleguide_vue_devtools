@@ -4,6 +4,7 @@ import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs
 
 import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand_box/expand_box.vue'
 import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
+import OsgVueNavbarMenu from 'styleguide_vue/src/molecules/navigation/navbar_menu/navbar_menu.vue'
 import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
 import OsgInputDate from 'styleguide_vue/src/molecules/forms/input_date/InputDate.vue'
 import OsgInputDatepicker from 'styleguide_vue/src/molecules/forms/input_datepicker/InputDatepicker.vue'
