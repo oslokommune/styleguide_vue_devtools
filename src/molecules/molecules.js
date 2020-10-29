@@ -6,9 +6,9 @@ import OsgVueExpandBox from 'styleguide_vue/src/molecules/content_display/expand
 import OsgVueInfoList from 'styleguide_vue/src/molecules/data_display/info_list/info_list.vue'
 import OsgVueNavbarMenu from 'styleguide_vue/src/molecules/navigation/navbar_menu/navbar_menu.vue'
 import OsgVueNavbarMenuServices from 'styleguide_vue/src/molecules/navigation/navbar_menu_services/navbar_menu_services.vue'
-import OsgInputDate from 'styleguide_vue/src/molecules/forms/input_date/InputDate.vue'
-import OsgInputDatepicker from 'styleguide_vue/src/molecules/forms/input_datepicker/InputDatepicker.vue'
-import OsgPagination from 'styleguide_vue/src/molecules/navigation/pagination/Pagination.vue'
+import { OsgInputDate } from 'styleguide_vue/src/molecules/forms/input_date'
+import { OsgInputDatepicker } from 'styleguide_vue/src/molecules/forms/input_datepicker'
+import { OsgPagination } from 'styleguide_vue/src/molecules/navigation/pagination'
 import OsgVueSearchField from 'styleguide_vue/src/molecules/search/search_field/search_field.vue'
 
 storiesOf('Molecules/Content_Display/Expand_Box', module)
