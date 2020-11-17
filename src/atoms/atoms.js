@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs'
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
-import docVueButton from './docs/button.md';
 import OsgVueFigure from 'styleguide_vue/src/atoms/decorators/figure/figure.vue'
 import OsgVueShape from 'styleguide_vue/src/atoms/decorators/shape/shape.vue'
 import OsgVueIcon from 'styleguide_vue/src/atoms/icons/icon/icon.vue'
@@ -33,13 +32,11 @@ storiesOf('Atoms/Buttons/Button', module)
       }
     },
 
-    data: () => ({
-      click: action('Event: click')
-    }),
+      methods: { action: action('clicked') },
 
     template: `
     <osg-vue-button
-      @click="click"
+      :on-click="action"
       :isCircle="isCircle"
       :isOutline="isOutline"
       :color="color"
@@ -49,9 +46,7 @@ storiesOf('Atoms/Buttons/Button', module)
     `
   }),
   {
-    info: {
-      summary: docVueButton
-    }
+    info: true
   }
 )
 
@@ -242,7 +237,7 @@ storiesOf('Atoms/Icons/Icon', module)
   }
 )
 
-storiesOf('Atoms/Checkbox/', module)
+storiesOf('Atoms/Checkbox/Checkbox', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
     components: { OsgVueCheckbox },

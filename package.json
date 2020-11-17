@@ -4,7 +4,8 @@
   "description": "Oslo Styleguide - Vue atomic pattern devtools",
   "main": "index.js",
   "scripts": {
-    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook": "start-storybook -p 9001 --no-dll",
+    "build-storybook": "build-storybook --no-dll",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,30 +20,30 @@
   "homepage": "https://github.com/oslokommune/styleguide_vue_devtools#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-knobs": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/addons": "^6.0.28",
+    "@storybook/theming": "^6.0.28",
+    "@storybook/vue": "^6.0.28",
     "babel-loader": "^8.1.0",
-    "babel-preset-vue": "^2.0.2",
     "css-loader": "^3.6.0",
     "node-sass": "^4.14.1",
-    "resolve-url-loader": "^3.1.1",
+    "react-is": "^17.0.1",
     "sass-loader": "^7.3.1",
+    "style-loader": "^2.0.0",
     "vue-loader": "^15.9.3",
     "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.6.12",
-    "vue-template-loader": "^1.1.0"
+    "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^1.1.5",
     "@nrk/core-datepicker": "^3.0.8",
-    "@storybook/addon-a11y": "^5.3.21",
-    "@storybook/addon-actions": "^5.3.21",
-    "@storybook/addon-backgrounds": "^5.3.21",
-    "@storybook/addon-knobs": "^5.3.21",
-    "@storybook/vue": "^5.3.21",
     "@webcomponents/custom-elements": "^1.4.2",
     "minireset.css": "0.0.5",
-    "storybook-addon-vue-info": "^1.4.2",
-    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#v0.45.1",
-    "styleguide_vue": "git+ssh://git@github.com/oslokommune/styleguide_vue.git#v0.0.10",
+    "styleguide": "git+ssh://git@github.com/oslokommune/styleguide.git#v0.46.0",
+    "styleguide_vue": "git+ssh://git@github.com/oslokommune/styleguide_vue.git#v0.0.11",
     "vue": "^2.6.12"
   }
 }

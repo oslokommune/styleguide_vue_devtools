@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean, date, select, array, object } from '@storybook/addon-knobs'
 
-import docVueAlert from './docs/messages/alert/alert.md'
 import OsgVueButton from 'styleguide_vue/src/atoms/buttons/button/button.vue'
 import OsgVueAlert from 'styleguide_vue/src/organisms/messages/alert/alert.vue'
 import OsgVueHero from 'styleguide_vue/src/organisms/navigation/hero/hero.vue'
@@ -91,9 +90,7 @@ storiesOf('Organisms/Messages/Alert', module)
     `
   }),
     {
-      info: {
-        summary: docVueAlert
-      }
+      info: true
     }
   )
 
@@ -382,7 +379,7 @@ storiesOf('Organisms/Headings/Event', module)
       },
 
       // Props for info list component
-      
+
       calendarTitle: {
         default: text('Calendar title', 'Praesent 22. sed', 'Info list'),
       },
